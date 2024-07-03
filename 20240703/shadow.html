@@ -99,16 +99,24 @@
         border-radius: 0 0 20px 20px;
         margin-bottom: 20px;
       }
-      .anal .anal-img-box {
-        width: 100%;
-        height: 200px;
-        padding: 10px;
-      }
-      .anal .anal-img-box img {
-        width: 100%;
+
+      .anal {
+        width: 300px;
         height: 180px;
         object-fit: cover;
         border-radius: 0 0 10px 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      tr,
+      table,
+      td,
+      th {
+        border: 1px solid #000;
+        border-collapse: collapse;
+        background-color: lightblue;
+        width: 250px;
       }
     </style>
   </head>
@@ -146,9 +154,24 @@
         </div>
       </div>
       <div class="anal">
-        <div class="anal-img-box">
-          <img src="../images/탈출.jpg" alt="" />
-        </div>
+        <table>
+          <tr>
+            <th>행성</th>
+            <th>탈출 속력</th>
+          </tr>
+          <tr>
+            <td>수성</td>
+            <td>4.3</td>
+          </tr>
+          <tr>
+            <td>금성</td>
+            <td>10.3</td>
+          </tr>
+          <tr>
+            <td>지구</td>
+            <td>11.2</td>
+          </tr>
+        </table>
       </div>
     </div>
   </body>
