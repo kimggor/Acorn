@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@100..900&display=swap");
+      body {
+        background-color: lightblue;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Nanum Pen Script";
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .container .title {
+        font-size: 36px;
+        margin-bottom: 20px;
+      }
+      .container .des {
+        width: 800px;
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+      audio {
+        margin-bottom: 20px;
+      }
+      h3 {
+        font-size: 32px;
+        color: blue;
+        text-shadow: 5px 5px 10px gray;
+        margin-bottom: 10px;
+      }
+      .content-dis {
+        align-items: flex-start;
+        margin-bottom: 20px;
+      }
+      .content-dis p {
+        font-size: 20px;
+      }
+      .content-wrap {
+        border: 2px solid #777;
+        width: 100%;
+        padding-left: 20px;
+        font-size: 18px;
+      }
+      img {
+        width: 100%;
+        height: 200px;
+        object-fit: contain;
+      }
+      footer {
+        background-color: coral;
+        width: 100%;
+      }
+      footer p {
+        margin: 0 0 10px 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2 class="title">스마트폰</h2>
+      <p class="des">
+        스마트폰(Smartphone)은 휴대 전화에 여러 컴퓨터 지원 기능을 추가한 지능형
+        단말기이다. 응용 소프트웨어 설치가 자유로운 것이 특징이며, 인류 역사에
+        혁신적인 기여를 한 위대한 물건 중 하나로 평가받는다. 사실상 휴대전화
+        기능을 탑재한 포터블 컴퓨터[4]라고 보면 될 정도로 오늘날 PC, TV, 라디오
+        등의 기능들을 전부 합친 기계이다.
+      </p>
+      <div class="audio"><audio src="../images/음악.mp3" controls></audio></div>
+      <hr />
+      <div class="content">
+        <h3>목차</h3>
+        <div class="content-wrap">
+          <ul>
+            <li>역사</li>
+            <li>안드로이드</li>
+            <li>아이폰</li>
+            <li>샘플</li>
+          </ul>
+        </div>
+        <div class="content-dis">
+          <h3>역사</h3>
+          <p>
+            최초의 스마트폰은 사이먼으로 추정된다 IBM사가 1992년에 설계하여 그
+            해에 미국 네바다 주의 라스베이거스에서 열린 컴댁스에서 컨셉 제품으로
+            전시되었다.
+          </p>
+        </div>
+        <div class="content-dis">
+          <h3>안드로이드</h3>
+          <p>
+            최초의 스마트폰은 사이먼으로 추정된다 IBM사가 1992년에 설계하여 그
+            해에 미국 네바다 주의 라스베이거스에서 열린 컴댁스에서 컨셉 제품으로
+            전시되었다.
+          </p>
+        </div>
+        <div class="content-dis">
+          <h3>아이폰</h3>
+          <p>
+            최초의 스마트폰은 사이먼으로 추정된다 IBM사가 1992년에 설계하여 그
+            해에 미국 네바다 주의 라스베이거스에서 열린 컴댁스에서 컨셉 제품으로
+            전시되었다.
+          </p>
+        </div>
+        <div class="content-dis">
+          <h3>샘플</h3>
+          <div class="img-wrap">
+            <img src="../images/스맛폰종류.jpg" alt="" />
+          </div>
+        </div>
+      </div>
+      <footer>
+        <p>설문조사</p>
+        <p>Copyrighy 2022 by sejung</p>
+      </footer>
+    </div>
+  </body>
+</html>
