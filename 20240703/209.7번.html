@@ -4,13 +4,44 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <style></style>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .card {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 50px;
+      }
+      .card-img {
+        width: 300px;
+        height: 400px;
+        background-image: url(../images/back.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        border: 2px solid #000;
+      }
+      .card-img:hover {
+        width: 300px;
+        height: 400px;
+        background-image: url(../images/spade-A.png);
+        background-size: cover;
+      }
+
+      p {
+        text-align: center;
+      }
+    </style>
   </head>
   <body>
     <h2>카드 앞뒷면</h2>
     <hr />
     <div class="card">
-      <div></div>
+      <div>카드에 마우스 올려 앞면</div>
+      <div class="card-img"></div>
     </div>
   </body>
 </html>
