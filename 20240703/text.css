@@ -1,0 +1,30 @@
+a {
+  text-decoration: none;
+  color: black;
+}
+h3 {
+  text-align: right;
+}
+span {
+  text-decoration: line-through;
+}
+strong {
+  text-decoration: overline;
+}
+p {
+  color: blue;
+}
+.p1 {
+  text-indent: 3rem;
+  font-size: 2rem;
+  text-align: justify;
+  color: red;
+}
+.p2 {
+  text-indent: 1rem;
+  text-align: center;
+}
+body {
+  font-family: "Nanum Pen Script";
+  background-color: mistyrose;
+}

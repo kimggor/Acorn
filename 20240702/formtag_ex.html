@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="">
+      <fieldset>
+        <legend>로그인</legend>
+        <label for="id"
+          >ID:
+          <input
+            type="text"
+            id="id"
+            name="id"
+            placeholder="아이디를 입력" /></label
+        ><br />
+        <label for="pwd"
+          >Password: <input type="password" id="pwd" name="pwd"
+        /></label>
+        <br /><button>로그인</button>
+      </fieldset>
+    </form>
+    <form action="">
+      <fieldset>
+        <legend>추가 정보</legend>
+        <label for="email">
+          메일 주소 : <input type="email" name="email" id="emaile"
+        /></label>
+        <br /><br />
+        <label for="agree">
+          메일 수신 동의<input
+            type="radio"
+            id="agree"
+            name="mail"
+            value="agree"
+          />
+        </label>
+        <label for="deny">
+          메일 수신 거부<input
+            type="radio"
+            id="deny"
+            name="mail"
+            value="deny"
+          />
+        </label>
+        <br /><br />
+        <label for="number"
+          >연락처 :
+          <input
+            type="phone"
+            id="number"
+            name="phone-number"
+            maxlength="11"
+            placeholder="'-' 제외하고 입력" /></label
+        ><br />
+        <label for="">
+          생년월일 :
+          <input type="text" placeholder="YYYY-MM-DD" />
+        </label>
+        <br />
+        <label for="hobby">
+          취미 :
+          <input type="checkbox" id="book" /> 독서
+        </label>
+        <label for="music"><input type="checkbox" id="music" /> 음악감상</label>
+        <label for="exercise"
+          ><input type="checkbox" id="exercise" /> 운동</label
+        >
+        <br /><br />
+        <label for="path"
+          >가입경로 :
+          <select name>
+            <option value="">블로그</option>
+          </select></label
+        >
+
+        <br /><br />
+        <textarea
+          name=""
+          id=""
+          cols="40"
+          rows="20"
+          placeholder="의견을 남겨주세요."
+        ></textarea>
+        <div>
+          <button type="submit">제출</button>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>메뉴</legend>
+
+        <div style="display: flex; flex-direction: column">
+          <label for="black">
+            <input type="radio" id="black" name="china" value="1" />짜장</label
+          ><img
+            src="../images/j2AxLP9AtrcJebh4DVfGxowfXwI3a95dG_YZb_Ktczc6Ca7ACyd_NJL3YHQMw8SABGTQiJDwSpySOSSBLZVEZw.webp"
+            alt=""
+            style="width: 200px"
+          />
+          <label for="red"
+            ><input type="radio" id="red" name="china" value="2" />짬뽕</label
+          ><img src="../images/짬뽕.webp" alt="" style="width: 200px" />
+          <label for="yellow"
+            ><input
+              type="radio"
+              id="yellow"
+              name="china"
+              value="3"
+            />탕수육</label
+          ><img src="../images/탕수육.webp" alt="" style="width: 200px" />
+        </div>
+        <button>선택완료</button>
+      </fieldset>
+    </form>
+  </body>
+</html>

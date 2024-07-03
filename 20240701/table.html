@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <table border="">
+      <caption>
+        색깔의 종류
+      </caption>
+      <thead>
+        <tr>
+          <th>종류</th>
+          <th>비비드</th>
+          <th>파스텔</th>
+          <th>어두운 계열</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>빨강</td>
+          <td>분홍색</td>
+          <td>검정</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>파랑</td>
+          <td>하늘색</td>
+          <td>남색</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>노랑</td>
+          <td>연보라</td>
+          <td>회색</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td>합계</td>
+          <td>3개</td>
+          <td>3개</td>
+          <td>3개</td>
+        </tr>
+      </tfoot>
+    </table>
+    <br />
+    <table border="1">
+      <caption>
+        색깔의 종류
+      </caption>
+      <thead>
+        <tr>
+          <th>종류</th>
+          <th colspan="2" style="background-color: yellowgreen">밝은계열</th>
+
+          <th>어두운 계열</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>빨강</td>
+          <td>분홍색</td>
+          <td>검정</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>파랑</td>
+          <td rowspan="2" style="background-color: skyblue">하늘색</td>
+          <td>남색</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>노랑</td>
+
+          <td>회색</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td>합계</td>
+          <td>3개</td>
+          <td>2개</td>
+          <td>3개</td>
+        </tr>
+      </tfoot>
+    </table>
+    표의 끝
+    <br /><br />
+    <table style="border-collapse: collapse; width: 30%; text-align: center">
+      <caption>
+        <h3>상품구성</h3>
+      </caption>
+      <thead>
+        <tr style="background-color: #f2f2f2">
+          <th style="border: 1px solid">용도</th>
+          <th style="border: 1px solid">중량</th>
+          <th style="border: 1px solid">개수</th>
+          <th style="border: 1px solid">가격</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td rowspan="2" style="border: 1px solid; background-color: gray">
+            실속형
+          </td>
+          <td style="border: 1px solid">3kg</td>
+          <td style="border: 1px solid">11~16과</td>
+          <td style="border: 1px solid">17,000원</td>
+        </tr>
+        <tr style="background-color: #f2f2f2">
+          <td style="border: 1px solid">5kg</td>
+          <td style="border: 1px solid">18~25과</td>
+          <td style="border: 1px solid">25,000원</td>
+        </tr>
+        <tr>
+          <td rowspan="2" style="border: 1px solid">고급형</td>
+          <td style="border: 1px solid">3kg</td>
+          <td style="border: 1px solid">11~16과</td>
+          <td style="border: 1px solid">28,000원</td>
+        </tr>
+        <tr style="background-color: #f2f2f2">
+          <td style="border: 1px solid">5kg</td>
+          <td style="border: 1px solid">18~25과</td>
+          <td style="border: 1px solid">47,000원</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br /><br />
+    <h2>표에 이미지 삽입</h2>
+    <hr />
+    <p style="font-size: 24px">좋아하는 과일</p>
+    <table style="border-collapse: collapse">
+      <tr>
+        <td style="border: 1px solid">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQ6_eX7RFK5Qd6nfhqjtHlQNwl0GgTN6S3Og&s"
+            alt=""
+            style="width: 150px; height: 150px"
+          />
+        </td>
+        <td style="border: 1px solid">
+          <img
+            src="https://res.heraldm.com/phpwas/restmb_idxmake.php?idx=507&simg=/content/image/2017/08/09/20170809000372_0.jpg"
+            alt=""
+            style="width: 150px; height: 150px"
+          />
+        </td>
+        <td style="border: 1px solid">
+          <img
+            src="https://health.chosun.com/site/data/img_dir/2021/07/29/2021072901667_0.jpg"
+            alt=""
+            style="width: 150px; height: 150px"
+          />
+        </td>
+      </tr>
+    </table>
+    <br />
+    <table style="border-collapse: collapse">
+      <caption>
+        셀 합치기 연습
+      </caption>
+      <tr style="background-color: #f2f2f2">
+        <th style="border: 1px solid; padding: 10px">이름</th>
+        <td style="border: 1px solid; padding: 10px">김세중</td>
+        <th style="border: 1px solid; padding: 10px">연락처</th>
+        <td style="border: 1px solid; padding: 10px">010-5757-9174</td>
+      </tr>
+      <tr style="background-color: #9999">
+        <th style="border: 1px solid; padding: 10px">전공</th>
+        <td style="border: 1px solid; padding: 10px" colspan="3">
+          컴퓨터공학과
+        </td>
+      </tr>
+      <tr style="background-color: #f2f2f2">
+        <th style="border: 1px solid; padding: 10px">공부하는 것</th>
+        <td style="border: 1px solid; padding: 10px" colspan="3">
+          HTML,CSS,JavaScript,React
+        </td>
+      </tr>
+    </table>
+    <!-- 
+    table : 표 컨테이너
+    caption : 표 제목
+    thead : 표 헤더
+    tbody : 표 내용
+    tfoot : 표 하단
+    tr : 행
+    td,th : tr의 자식요소,칸
+    -->
+    <table border="1">
+      <caption>
+        요안도라 객실
+      </caption>
+      <tr style="background-color: #9999">
+        <th>방이름</th>
+        <th>대상</th>
+        <th>크기</th>
+        <th>가격</th>
+      </tr>
+      <tr>
+        <td>유채방</td>
+        <td>여성 도미토리</td>
+        <td rowspan="3">4인실</td>
+        <td rowspan="4">1인 20,000원</td>
+      </tr>
+      <tr>
+        <td rowspan="2">동백방</td>
+        <td>동성 도미토리</td>
+      </tr>
+      <tr>
+        <td>가족 1팀</td>
+      </tr>
+      <tr>
+        <td>천혜향방</td>
+        <td>-</td>
+        <td>2인실</td>
+      </tr>
+      <tr>
+        <td colspan="4" style="background-color: #9999; text-align: center">
+          <b>바깥채 전체를 렌트합니다.</b>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

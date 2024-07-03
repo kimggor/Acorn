@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      img {
+        width: 250px;
+        object-fit: cover;
+      }
+      body {
+        background-color: linen;
+        color: green;
+        margin: 0 40px 0 40px;
+      }
+      h3 {
+        text-align: center;
+        color: darkred;
+      }
+      hr {
+        height: 5px;
+        border: solid grey;
+        background-color: gray;
+      }
+      span {
+        color: lightblue;
+        font-size: 24px;
+      }
+    </style>
+    <script>
+      function show() {
+        document.getElementById("blossom").src = "../images/벚꽃.jpg";
+      }
+      function hide() {
+        document.getElementById("blossom").src = "";
+      }
+    </script>
+  </head>
+  <body>
+    <h3 onmouseover="show()" onmouseout="hide()">아무거나</h3>
+    <hr />
+    <div>
+      <img id="blossom" src="" alt="" />
+    </div>
+    마릿수 기준으로는 닭고기가 가장 많이 도축되지만, 마리당 중량차로 인해 중량
+    기준으로는 세계에서 가장 많이 소비되는 육류이다. 일부를 제외한 대부분의
+    문화권에서 쉽게 접할 수 있는 고기이다.
+    <span>이는 돼지가 사육 효율이</span> 높은 동물이였던 점도 있다. 돼지는
+    성장이 빨라 생후 6개월 만에 100~120kg까지 몸무게가 늘어나고 한번에 10여
+    마리의 새끼를 <span>임신하기에 고기를 얻기</span> 위한 목적이라면 돼지보다
+    효율적인 포유류 가축은 없다. 1990년 미국 농무부의 연구 기준으로 귀뚜라미는
+    59%, 닭은 50% 이상, 잉어 따위의 초식성 어류는 50% 이하,
+  </body>
+</html>

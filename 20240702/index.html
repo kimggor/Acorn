@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>하이퍼링크</title>
+    <style>
+      table {
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid gray;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>텍스트 링크 만들기</h1>
+    <p>
+      문단 태그 내용 안에서
+      <a href="https://www.naver.com/" target="_blank"> 링크부분 네이버</a>로
+      이동
+      <!-- 
+        _blank : 새 탭
+        _self : Default값
+        _parent : 링크 냐용을 부모 프레임에 표시
+        _top : 링크 내요을 전체화면에 표시
+      -->
+    </p>
+    <a href="https://www.google.com"
+      ><img src="../images/google.png" alt="" style="width: 80px"
+    /></a>
+    <br />
+    <iframe src="test.html" frameborder="0"></iframe>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6326.075062115666!2d126.91775426810636!3d37.55417953770042!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98c43e5ba2b5%3A0x75bd701f5128523a!2z7ZmN7J2164yA7ZWZ6rWQIOyEnOyauOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1719880723519!5m2!1sko!2skr"
+      width="300"
+      height="250"
+      style="border: 0"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+
+    <table style="width: 100%">
+      <caption>
+        <b>Modern Browser</b>
+        <p>국내에서 자주 사용하는 브라우저</p>
+      </caption>
+      <thead>
+        <tr>
+          <th>브라우저</th>
+          <th>제조업체</th>
+          <th>다운로드</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>크롬</td>
+          <td>Google</td>
+          <td>
+            <a href="https://www.google.com/chrome/"
+              >https://www.google.com/chrome/</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td>파이어폭스</td>
+          <td>Mozila</td>
+          <td>
+            <a href="https://www.mozila.org/ko/firefox/"
+              >https://www.mozila.org/ko/firefox/</a
+            >
+          </td>
+        </tr>
+        <tr>
+          <td>엣지</td>
+          <td>MicroSoft</td>
+          <td>
+            <a href="https://www.microsoft.com/ko-kr/windows/microsoft-edge"
+              >https://www.microsoft.com/ko-kr/windows/microsoft-edge</a
+            >
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

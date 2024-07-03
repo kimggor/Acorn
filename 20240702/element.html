@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      a {
+        color: grey;
+        text-decoration: none;
+      }
+      a:hover {
+        font-size: 24px;
+        color: #f486;
+        font-weight: 600;
+      }
+      a:visited {
+        color: blueviolet;
+      }
+      a:focus {
+        color: chocolate;
+      }
+      .bad {
+        font-size: 200px;
+        animation: moveBox 100s infinite alternate;
+      }
+
+      @keyframes moveBox {
+        from {
+          transform: translateX(0);
+          font-size: 500%;
+        }
+        to {
+          transform: translateX(300px);
+          font-size: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <p><a href="#">웹 기획</a></p>
+      <p><a href="#">웹 스토리보드</a></p>
+      <p><a href="#">웹 디자인</a></p>
+      <p><a href="#">웹 포트폴리오</a></p>
+      <p><a href="#">웹 구조</a></p>
+    </div>
+    <p class="bad">꽝!</p>
+  </body>
+</html>

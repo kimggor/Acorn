@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      h1 {
+        font-size: 50px;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .shadow1 {
+        color: olive;
+        text-shadow: 20px 20px 20px #777;
+        /* 가로 세로 번짐정도 */
+      }
+      .shadow2 {
+        color: cadetblue;
+        text-shadow: 3px 3px #777;
+      }
+      .shadow3 {
+        color: coral;
+        text-shadow: 7px -7px 5px #777;
+      }
+      .shadow4 {
+        color: white;
+        text-shadow: 0 0 4px #777, 2px -10px 6px red, 2px -20px 18px green,
+          2px -20px 18px yellow;
+      }
+      div {
+        font: normal 24px verdana;
+      }
+      .wordArtEffect {
+        color: white;
+        text-shadow: 0px 0px 3px darkblue;
+      }
+      .redbox {
+        width: 200px;
+        height: 150px;
+        border: 5px solid red;
+        margin-bottom: 20px;
+        box-shadow: 10px 10px 5px #777;
+        background-image: url(../images/사과.png);
+      }
+      .bluebox {
+        width: 200px;
+        height: 150px;
+        border: 5px solid gray;
+        box-shadow: 10px 10px 5px skyblue;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: sans-serif;
+      }
+      .wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+      .space {
+        width: 300px;
+        height: 200px;
+        background-color: olive;
+        border-radius: 20px 20px 0 0;
+      }
+      .space .space-title {
+        text-align: center;
+        margin: 20px 0;
+        font-weight: bold;
+      }
+      .space .space-descript {
+        font-size: 17px;
+        padding: 0 10px 10px 10px;
+      }
+      .galaxy {
+        width: 300px;
+        height: 150px;
+        background-color: seagreen;
+      }
+      .galaxy .galaxy-title {
+        text-align: center;
+        margin: 20px 0;
+        font-weight: bold;
+      }
+      .galaxy .galaxy-descript {
+        font-size: 17px;
+        padding: 0 10px 10px 10px;
+      }
+      .anal {
+        width: 300px;
+        height: 200px;
+        background-color: slateblue;
+        border-radius: 0 0 20px 20px;
+        margin-bottom: 20px;
+      }
+      .anal .anal-img-box {
+        width: 100%;
+        height: 200px;
+        padding: 10px;
+      }
+      .anal .anal-img-box img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 0 0 10px 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="shadow1">HTML</h1>
+    <h1 class="shadow2">HTML</h1>
+    <h1 class="shadow3">HTML</h1>
+    <h1 class="shadow4">HTML</h1>
+    <div class="wordArtEffect">wordArtEffect</div>
+    <div class="redbox">뚱이와 함께</div>
+    <div class="bluebox">뚱이와 함께</div>
+
+    <h3>마우스 커서</h3>
+    <hr />
+    <p style="cursor: crosshair">십자</p>
+    <p style="cursor: help">도움말</p>
+    <p style="cursor: pointer">포인터</p>
+    <p style="cursor: progress">프로그램 실행</p>
+    <p style="cursor: n-resize; margin-bottom: 100px">상하 크기 조절</p>
+
+    <div class="wrap">
+      <div class="space">
+        <div class="space-title">우주</div>
+        <div class="space-descript">
+          <span
+            >우주란 행성,별,은하계 그리고 모든 형태의 물질과 에너지를 포함한
+            모든 시공간과 그 내용물 모두를 통틀어 이른다.</span
+          >
+        </div>
+      </div>
+      <div class="galaxy">
+        <div class="galaxy-title">은하계</div>
+        <div class="galaxy-descript">
+          은하는 우주를 구성하고 있는 단위의 하나로,수천억 개 이상의 별
+        </div>
+      </div>
+      <div class="anal">
+        <div class="anal-img-box">
+          <img src="../images/탈출.jpg" alt="" />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
