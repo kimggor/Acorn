@@ -15,36 +15,27 @@ body {
   font-family: "AppleSDGothicNeoL";
 }
 @media screen and (max-width: 1024px) {
-  header {
-    padding: 10px 20px;
-    align-items: center;
-  }
-
+  /* 
+    1.블루보틀 로고 중앙정렬을 위한 margin값 auto 
+    2.display:none이였던 menu아이콘을 불러오기 
+  */
   header .menu-icon {
     margin-right: auto;
-    display: flex;
+    display: block;
   }
 
+  /* 수직방향 중앙 정렬 */
   header .utility-wrap {
     align-items: center;
   }
-
+  /* 수평방향 중앙 정렬 */
   header .logo {
     margin: 0 auto;
   }
 
+  /* nav의 utility를 display:none */
   header .utility-wrap span a {
     display: none;
-  }
-
-  .submenu {
-    position: static;
-    box-shadow: none;
-    padding: 0;
-  }
-
-  .submenu li {
-    margin: 5px 0;
   }
 }
 header {
