@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      div {
+        width: 1200px;
+        height: 500px;
+      }
+      header {
+        width: 100%;
+        height: 80px;
+        background-color: yellowgreen;
+      }
+      .flex {
+        display: flex;
+      }
+      aside {
+        background-color: aquamarine;
+        width: 20%;
+        height: 100%;
+      }
+      section {
+        width: 80%;
+        height: 100%;
+        background-color: coral;
+      }
+      footer {
+        width: 100%;
+        height: 80px;
+        background-color: darkgreen;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <header><h1>사이트 로고</h1></header>
+      <div class="flex">
+        <aside><h2>사이드 영역</h2></aside>
+        <section>
+          <article>
+            <h3>오른쪽 영역</h3>
+            <p>검색엔진이 좋아하는 웹 페이지,시멘틱 웹 앱 문서를 구조화하여</p>
+          </article>
+          <hr />
+          <figure>
+            <p>122쪽 함수 활용</p>
+            <pre><code>function f() alert("경고합니다")</code></pre>
+          </figure>
+          <hr />
+          <figcaption>
+            <span>실행결과</span>
+            <div><img src="../images/bluebottle.svg" alt="" /></div>
+          </figcaption>
+        </section>
+        <section class=""></section>
+      </div>
+      <footer><h4>푸터</h4></footer>
+    </div>
+  </body>
+</html>

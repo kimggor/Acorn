@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Survey</title>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@100..900&display=swap");
       * {
@@ -16,6 +16,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        padding: 20px;
       }
       .title {
         color: forestgreen;
@@ -24,7 +25,7 @@
         margin-bottom: 20px;
       }
       .des {
-        font-family: "Nanum Pen Script";
+        font-family: "Nanum Pen Script", cursive;
         font-size: 24px;
         margin-bottom: 20px;
         border-bottom: 2px solid #777;
@@ -34,17 +35,30 @@
       .form-wrap {
         background-color: pink;
         padding: 20px;
+        border-radius: 10px;
+        width: 500px;
       }
       .form-wrap span {
         color: blue;
         font-weight: bold;
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 5px;
+      }
+      .form-wrap input[type="radio"],
+      .form-wrap input[type="checkbox"],
+      .form-wrap select,
+      .form-wrap textarea {
+        margin: 10px 0;
       }
       footer {
         background-color: coral;
         width: 600px;
         border-radius: 20px;
         font-weight: bold;
-        padding: 5px;
+        padding: 10px;
+        text-align: center;
+        margin-top: 20px;
       }
     </style>
   </head>
@@ -52,38 +66,54 @@
     <div class="container">
       <div class="title">설문조사</div>
       <div class="des">
-        소프트웨어 기술에 대한 의견을 듣습니다.많은 참여 바랍니다.
+        소프트웨어 기술에 대한 의견을 듣습니다. 많은 참여 바랍니다.
       </div>
-
       <div class="form-wrap">
         <form action="">
           <span>학년</span>
-          <input type="radio" /> 1학년 <input type="radio" /> 2학년
-          <input type="radio" /> 3학년 <input type="radio" /> 4학년
-        </form>
-        <form action="">
+          <label for="grade1">
+            <input type="radio" name="grade" value="1" id="grade1" /> 1학년
+          </label>
+          <label for="grade2"
+            ><input type="radio" name="grade" value="2" id="grade2" />
+            2학년</label
+          >
+          <label for="grade3"
+            ><input type="radio" name="grade" value="3" id="grade3" />
+            3학년</label
+          >
+          <label for="grade4"
+            ><input type="radio" name="grade" value="4" id="grade4" />
+            4학년</label
+          >
+
           <span>성별</span>
-          <input type="radio" /> 남성 <input type="radio" /> 여성
-        </form>
-        <form>
+          <input type="radio" name="gender" value="male" /> 남성
+          <input type="radio" name="gender" value="female" /> 여성
+
           <span>관심 분야</span>
-          <select name="" id="">
-            <option value="">모바일 소프트웨어</option>
-            <option value="">SNS</option>
-            <option value="">검색</option>
-            <option value="">지인추천</option>
-            <option value="">기타</option>
+          <select name="interest">
+            <option value="mobile">모바일 소프트웨어</option>
+            <option value="sns">SNS</option>
+            <option value="search">검색</option>
+            <option value="recommendation">지인추천</option>
+            <option value="etc">기타</option>
           </select>
-        </form>
-        <form action="">
+
           <span>진로(다중 선택)</span>
-          <input type="checkbox" /> 개발 <input type="checkbox" /> 기획
-          <input type="checkbox" /> 영업 <input type="checkbox" /> 창업
+          <input type="checkbox" name="career" value="development" /> 개발
+          <input type="checkbox" name="career" value="planning" /> 기획
+          <input type="checkbox" name="career" value="sales" /> 영업
+          <input type="checkbox" name="career" value="entrepreneurship" /> 창업
+
+          <span>남기고 싶은 말</span>
+          <textarea name="comments" rows="10" cols="40"></textarea>
+
+          <br />
+          <button type="submit">제출</button>
         </form>
-        <span>남기고싶은 말</span>
-        <textarea name="" id="" rows="10" cols="40"></textarea>
       </div>
-      <footer>Copyright 2022 by sejung</footer>
+      <footer>Copyright 2022 by Sejung</footer>
     </div>
   </body>
 </html>

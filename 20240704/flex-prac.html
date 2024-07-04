@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      section {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .s1 {
+        display: flex;
+        flex-direction: row;
+        border: 1px solid;
+        padding: 10px;
+        justify-content: space-between;
+        margin-bottom: 10px;
+      }
+      .s2 {
+        display: flex;
+        flex-direction: row;
+        border: 1px solid;
+        padding: 10px;
+        justify-content: space-between;
+        margin-bottom: 10px;
+      }
+      .s2 .b2-b3-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .s3 {
+        display: flex;
+        flex-direction: row;
+        border: 1px solid;
+        padding: 10px;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+      .s3 span {
+        display: flex;
+        align-items: center;
+      }
+      .s3 .box1 {
+        width: 200px;
+        height: 200px;
+      }
+      .s3 .box2 {
+        position: relative;
+        right: 50%;
+      }
+      .s4 {
+        display: flex;
+        border: 1px solid;
+        padding: 10px;
+        margin-bottom: 50px;
+        padding-bottom: 50px;
+      }
+      .s4 span {
+        display: flex;
+      }
+      .s4 span .box2 {
+        position: relative;
+        top: 30%;
+        right: 20%;
+      }
+      .s5 {
+        display: flex;
+        border: 1px solid;
+        padding: 10px;
+        margin-bottom: 50px;
+      }
+      .s5 .box1 {
+        width: 250px;
+        height: 150px;
+      }
+      .s5 .wrap1 {
+        display: flex;
+      }
+      .s5 .wrap2 {
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        right: 44.3%;
+      }
+      .s5 .box2 {
+        position: relative;
+        top: 33.2%;
+        right: 15%;
+      }
+      div {
+        width: 100px;
+        height: 100px;
+      }
+      .box1 {
+        background-color: lightgreen;
+      }
+      .box2 {
+        background-color: coral;
+      }
+      .box3 {
+        background-color: skyblue;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="s1">
+      <div class="box1">box1</div>
+      <div class="box2">box2</div>
+      <div class="box3">box3</div>
+    </section>
+    <section class="s2">
+      <div class="box1">box1</div>
+      <span class="b2-b3-wrap">
+        <div class="box2">box2</div>
+        <div class="box3">box3</div>
+      </span>
+    </section>
+    <section class="s3">
+      <span>
+        <div class="box1">box1</div>
+        <div class="box2">box2</div>
+      </span>
+    </section>
+    <section class="s4">
+      <span>
+        <div class="box1">box1</div>
+        <div class="box2">box2</div>
+      </span>
+    </section>
+    <section class="s5">
+      <span class="wrap1">
+        <div class="box1">box1</div>
+        <span class="wrap2">
+          <div class="box2">box2</div>
+          <div class="box3">box3</div>
+        </span>
+      </span>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,85 @@
+@font-face {
+  font-family: "AppleSDGothicNeoL";
+  src: url(./font/AppleSDGothicNeoL.ttf);
+}
+body {
+  background-color: #e5e5e5;
+  font-family: "AppleSDGothicNeoL";
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.detail a {
+  color: #484848;
+  text-decoration: underline;
+}
+p,
+a {
+  font-size: 14px;
+}
+.container {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 10%;
+}
+.wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.join h4 {
+  margin-bottom: 12px;
+}
+.join p {
+  width: 279px;
+  margin-bottom: 15px;
+}
+span a {
+  text-decoration: none;
+  color: black;
+}
+.join .sign {
+  height: 44px;
+  background-color: black;
+  flex-direction: column;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 64px;
+  margin-top: 12px;
+  padding: 0 12px;
+}
+.join .sign a {
+  color: #fff;
+  text-decoration: none;
+}
+.family,
+.network {
+  width: 380px;
+  padding-right: 100px;
+}
+.family {
+  margin-bottom: 32px;
+}
+.detail {
+  margin-right: 50px;
+}
+.customer,
+.shopping,
+.service,
+.story {
+  display: flex;
+  flex-direction: column;
+  width: 222px;
+}
+.shopping span,
+.customer span,
+.service span,
+.story span {
+  padding: 8px 0;
+}
+h4 {
+  margin-bottom: 16px;
+}
