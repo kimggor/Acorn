@@ -14,6 +14,39 @@ a {
 body {
   font-family: "AppleSDGothicNeoL";
 }
+@media screen and (max-width: 1024px) {
+  header {
+    padding: 10px 20px;
+    align-items: center;
+  }
+
+  header .menu-icon {
+    margin-right: auto;
+    display: flex;
+  }
+
+  header .utility-wrap {
+    align-items: center;
+  }
+
+  header .logo {
+    margin: 0 auto;
+  }
+
+  header .utility-wrap span a {
+    display: none;
+  }
+
+  .submenu {
+    position: static;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .submenu li {
+    margin: 5px 0;
+  }
+}
 header {
   width: 100%;
   height: 62px;
@@ -24,11 +57,14 @@ header {
   padding: 0 50px;
   opacity: 1;
 }
-
+.menu-icon {
+  display: none;
+}
 header .utility-wrap {
   display: flex;
   gap: 40px;
   padding: 10px 0 10px 0;
+  height: 62px;
 }
 
 header .logo {
