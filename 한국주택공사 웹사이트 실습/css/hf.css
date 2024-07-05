@@ -15,6 +15,9 @@ a {
 .header-wrap {
   border-bottom: 1px solid #e5e5e5;
   z-index: 1;
+  position: fixed;
+  background-color: white;
+  width: 100%;
 }
 header {
   height: 110px;
@@ -71,7 +74,7 @@ header .menu-wrap .main-wrap a {
   font-weight: bold;
 }
 .section-wrap {
-  padding: 100px 0 100px 0;
+  padding: 150px 0 100px 0;
   background-color: #ecf0f7;
   height: 100vh;
 }
