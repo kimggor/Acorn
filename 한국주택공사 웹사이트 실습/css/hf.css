@@ -1,0 +1,141 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Nanum Gothic", sans-serif;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+.header-wrap {
+  border-bottom: 1px solid #e5e5e5;
+  z-index: 1;
+}
+header {
+  height: 110px;
+  display: flex;
+  align-items: center;
+  margin: 0 140px;
+  justify-content: space-between;
+}
+header .menu-wrap {
+  display: flex;
+  flex-direction: column;
+}
+header .menu-wrap .util-wrap {
+  display: flex;
+  justify-content: flex-end;
+}
+header .menu-wrap .util-wrap .guide {
+  display: flex;
+}
+header .menu-wrap .util-wrap .guide button {
+  background-color: white;
+  border: none;
+  margin: 0 15px;
+}
+header .menu-wrap .util-wrap .login button {
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  padding: 0 15px;
+  margin: 0.7px;
+  /* 0373e4 */
+  line-height: 28px;
+}
+header .menu-wrap .util-wrap .guide button span a {
+  font-size: 16px;
+  color: #0373e4;
+}
+header .menu-wrap .main-wrap .main-menu-icon i:last-child {
+  margin-left: 24px;
+}
+header .menu-wrap .main-wrap {
+  display: flex;
+  align-items: center;
+}
+header .menu-wrap .main-wrap ul {
+  display: flex;
+}
+header .menu-wrap .main-wrap li {
+  padding: 15px 0;
+  margin: 0 30px;
+}
+header .menu-wrap .main-wrap a {
+  padding: 20px 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+.section-wrap {
+  padding: 100px 0 100px 0;
+  background-color: #ecf0f7;
+  height: 100vh;
+}
+.section-wrap section {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.section-wrap section .card-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 20px 25px 62px 25px;
+  margin: 40px 100px;
+}
+.section-wrap section .card-wrap .card a {
+  display: flex;
+  background-image: url("https://bank.hf.go.kr/resources/images/MN/bg_main_slide02.jpg");
+  object-fit: cover;
+  min-width: 380px;
+  min-height: 460px;
+  padding: 50px 40px;
+  background-color: #fff;
+  text-align: left;
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  background-repeat: no-repeat;
+  background-position: center 85%;
+  box-sizing: border-box;
+  transition: all 0.3s;
+}
+.section-wrap section .card-wrap .card:last-child a {
+  background-image: url("https://bank.hf.go.kr/resources/images/MN/bg_main_slide01.jpg");
+}
+.section-wrap section .card-wrap .card a:hover {
+  min-height: 480px;
+  margin-top: -20px;
+  position: relative;
+  transition: all 0.3s;
+  box-shadow: 0 30px 40px rgba(0, 0, 0, 0.2);
+}
+.section-wrap section .card-wrap .card span {
+  display: flex;
+  flex-direction: column;
+}
+.section-wrap section .card-wrap .card span .title {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.section-wrap section .card-wrap .card span .des {
+  font-size: 20px;
+  color: #555555;
+  margin-bottom: 20px;
+}
+.section-wrap section .card-wrap .card span .maximum {
+  color: #0373e4;
+  font-size: 18px;
+  margin-top: 16px;
+}
+.section-wrap section .card-wrap .card span .price {
+  color: #0373e4;
+  font-size: 36px;
+  font-weight: bold;
+  margin-top: 10px;
+}

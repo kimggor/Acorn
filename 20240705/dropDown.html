@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .whole-wrap {
+        display: flex;
+        flex-direction: column;
+      }
+      .wrap {
+        display: flex;
+        margin: 100px;
+      }
+      .wrap-dropdown {
+        display: flex;
+      }
+      .wrap-dropdown:hover .drop-down-content-2 {
+        display: block;
+      }
+      .drop-down,
+      .drop-down-2 {
+        background-color: skyblue;
+        width: 100px;
+        text-align: center;
+        list-style: none;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+      }
+      .drop-down-content,
+      .drop-down-content-2 {
+        display: none;
+      }
+      .drop-down:hover .drop-down-content {
+        display: block;
+      }
+      .drop-down-content li a,
+      .drop-down-content-2 li a {
+        text-decoration: none;
+        color: gray;
+      }
+      .drop-down-content li a,
+      .drop-down-content-2 li a:hover {
+        color: coral;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="whole-wrap">
+      <div class="wrap">
+        <ul class="drop-down">
+          드롭다운
+          <div class="drop-down-content">
+            <li><a href="">1</a></li>
+            <li><a href="">2</a></li>
+            <li><a href="">3</a></li>
+          </div>
+        </ul>
+        <ul class="drop-down">
+          드롭다운
+          <div class="drop-down-content">
+            <li><a href="">1</a></li>
+            <li><a href="">2</a></li>
+            <li><a href="">3</a></li>
+          </div>
+        </ul>
+        <ul class="drop-down">
+          드롭다운
+          <div class="drop-down-content">
+            <li><a href="">1</a></li>
+            <li><a href="">2</a></li>
+            <li><a href="">3</a></li>
+          </div>
+        </ul>
+      </div>
+      <div class="wrap">
+        <dis class="wrap-dropdown">
+          <ul class="drop-down-2">
+            드롭다운
+            <div class="drop-down-content-2">
+              <li><a href="">1</a></li>
+              <li><a href="">2</a></li>
+              <li><a href="">3</a></li>
+            </div>
+          </ul>
+          <ul class="drop-down-2">
+            드롭다운
+            <div class="drop-down-content-2">
+              <li><a href="">1</a></li>
+              <li><a href="">2</a></li>
+              <li><a href="">3</a></li>
+            </div>
+          </ul>
+          <ul class="drop-down-2">
+            드롭다운
+            <div class="drop-down-content-2">
+              <li><a href="">1</a></li>
+              <li><a href="">2</a></li>
+              <li><a href="">3</a></li>
+            </div>
+          </ul>
+        </dis>
+      </div>
+    </div>
+  </body>
+</html>

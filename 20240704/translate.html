@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .container,
+      .container1,
+      .container2,
+      .container3,
+      .container4 {
+        border: 2px solid;
+        height: 100px;
+        width: 300px;
+        margin: 50px auto;
+      }
+      .container1:hover {
+        transform: translate(50%, 30%);
+      }
+      .container:hover {
+        transform: scale(1.2, 2);
+      }
+      .container2:hover {
+        transform: rotate(45deg);
+      }
+      .asd {
+        perspective: 100px;
+      }
+      .container3:hover {
+        transform: rotate3d(2.5, 1.2, -1.5, 45deg);
+        /* x,y,z,degree */
+      }
+      .container4:hover {
+        transform: rotate3d(2.5, 1.2, 1.5, 45deg);
+      }
+      img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="asd">
+      <div class="container">
+        <img src="../images/라떼.jfif" alt="" />
+      </div>
+    </div>
+    <div class="asd">
+      <div class="container1">
+        <img src="../images/라떼.jfif" alt="" />
+      </div>
+    </div>
+    <div class="asd">
+      <div class="container2">
+        <img src="../images/라떼.jfif" alt="" />
+      </div>
+    </div>
+    <div class="asd">
+      <div class="container3">
+        <img src="../images/라떼.jfif" alt="" />
+      </div>
+    </div>
+    <div class="asd">
+      <div class="container4">
+        <img src="../images/라떼.jfif" alt="" />
+      </div>
+    </div>
+  </body>
+</html>
