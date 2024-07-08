@@ -128,6 +128,7 @@ header .menu-wrap .main-wrap a {
   transition: all 0.3s;
   box-shadow: 0 30px 40px rgba(0, 0, 0, 0.2);
 }
+
 .section-wrap section .card-wrap .card span {
   display: flex;
   flex-direction: column;

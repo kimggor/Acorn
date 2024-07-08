@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      section {
+        width: 1000px;
+        border: 1px solid;
+        overflow: hidden;
+        margin: 0 auto;
+      }
+      ul {
+        width: 4000px;
+        height: 350px;
+        overflow: hidden;
+        animation: slideAni 8s infinite ease-in-out;
+        position: relative;
+        display: flex;
+        flex-direction: row;
+      }
+      ul img {
+        width: 1000px;
+        object-fit: cover;
+        height: 350px;
+      }
+      @keyframes slideAni {
+        0% {
+          left: 0;
+        }
+        25% {
+          left: -1000px;
+        }
+        50% {
+          left: -2000px;
+        }
+        75% {
+          left: -3000px;
+        }
+        100% {
+          left: -4000px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <ul>
+        <li><img src="../images/깃허브.png" alt="" /></li>
+        <li><img src="../images/velog.png" alt="" /></li>
+        <li><img src="../images/spade-A.png" alt="" /></li>
+        <li><img src="../images/google.png" alt="" /></li>
+      </ul>
+    </section>
+  </body>
+</html>
