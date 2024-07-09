@@ -1,0 +1,263 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-wrap: nowrap;
+}
+body {
+  font-family: "Nanum Gothic", sans-serif;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+.header-wrap {
+  border-bottom: 1px solid #e5e5e5;
+  z-index: 1;
+  position: fixed;
+  background-color: white;
+  width: 100%;
+}
+header {
+  width: 1200px;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+header .menu-wrap {
+  display: flex;
+  flex-direction: column;
+}
+header .menu-wrap .util-wrap {
+  display: flex;
+  justify-content: flex-end;
+}
+header .menu-wrap .util-wrap .guide {
+  display: flex;
+}
+header .menu-wrap .util-wrap .guide button {
+  background-color: white;
+  border: none;
+  margin: 0 15px;
+}
+header .menu-wrap .util-wrap .login button {
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  padding: 0 15px;
+  margin: 0.7px;
+  /* 0373e4 */
+  line-height: 28px;
+}
+header .menu-wrap .util-wrap .guide button span a {
+  font-size: 16px;
+  color: #0373e4;
+}
+header .menu-wrap .main-wrap .main-menu-icon i:last-child {
+  margin-left: 24px;
+}
+header .menu-wrap .main-wrap {
+  display: flex;
+  align-items: center;
+}
+header .menu-wrap .main-wrap ul {
+  display: flex;
+}
+header .menu-wrap .main-wrap li {
+  padding: 15px 0;
+  margin: 0 30px;
+}
+header .menu-wrap .main-wrap a {
+  padding: 20px 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+.section-wrap {
+  padding: 150px 0 80px 0;
+  background-color: #ecf0f7;
+  height: 100%;
+}
+.section-wrap section {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.section-wrap section .card-wrap {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 30px;
+  padding: 20px 25px 62px 25px;
+  margin: 40px 100px;
+}
+.section-wrap section .card-wrap .card a {
+  /* 
+    전체카드 최소w=380,최소h=460
+    bg-img 상하=center,좌우 카드w의 85%
+  */
+  display: flex;
+  background-image: url("https://bank.hf.go.kr/resources/images/MN/bg_main_slide02.jpg");
+  object-fit: cover;
+  min-width: 380px;
+  min-height: 460px;
+  padding: 50px 40px;
+  background-color: #fff;
+  text-align: left;
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  background-repeat: no-repeat;
+  background-position: center 85%;
+  box-sizing: border-box;
+}
+.section-wrap section .card-wrap .card:last-child a {
+  /* card클래스 중 마지막 카드에만 적용 */
+  background-image: url("https://bank.hf.go.kr/resources/images/MN/bg_main_slide01.jpg");
+}
+.section-wrap section .card-wrap .card a:hover {
+  /* 
+    카드에 hover시, 최소크기 480px로 확장 == 카드크기 480px로 확장
+    margint-top:-20px 옵션으로 위쪽 방향으로 확장 == margin의 음수값은 내부(안쪽)으로 마진값 생성
+  */
+  min-height: 480px;
+  margin-top: -20px;
+  position: relative;
+  transition: all 0.3s;
+  box-shadow: 0 30px 40px rgba(0, 0, 0, 0.2);
+}
+
+.section-wrap section .card-wrap .card span {
+  display: flex;
+  flex-direction: column;
+}
+.section-wrap section .card-wrap .card span .title {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.section-wrap section .card-wrap .card span .des {
+  font-size: 20px;
+  color: #555555;
+  margin-bottom: 20px;
+}
+.section-wrap section .card-wrap .card span .maximum {
+  color: #0373e4;
+  font-size: 18px;
+  margin-top: 16px;
+}
+.section-wrap section .card-wrap .card span .price {
+  color: #0373e4;
+  font-size: 36px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+.page-wrap {
+  display: flex;
+}
+.page-wrap .page-btn button {
+  width: 16px;
+  height: 16px;
+  background-color: #bbbbbb;
+  border-radius: 100%;
+  border: none;
+}
+.page-wrap .page-btn .current-page {
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  background-color: #0373e4;
+  border-radius: 100%;
+  border: none;
+}
+.page-wrap .page-btn button:hover {
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  background-color: #0373e4;
+  border-radius: 100%;
+  border: none;
+}
+.category-container {
+  margin: 0 auto;
+  width: 1200px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.category-wrap {
+  width: 100%;
+  height: 176px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.category {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 15px;
+  font-weight: bold;
+}
+.category .category-img i {
+  display: block;
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 10px;
+  background-image: url(https://bank.hf.go.kr/resources/images/MH/icon_set_business.png);
+  background-repeat: no-repeat;
+  padding: 0 0 10px 0;
+}
+
+.inform-container {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.inform-container .inform-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.inform-container .inform-wrap .inform-card-left {
+  width: 290px;
+  height: 120px;
+  background-color: #e5e5e5;
+  padding: 40px;
+}
+.inform-container .inform-wrap .inform-wrap-right {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+.inform-container .inform-wrap .inform-wrap-right .inform-card-right {
+  width: 370px;
+  height: 80px;
+  background-color: #0373e4;
+}
+footer {
+  padding: 30px 20px 25px 50px;
+  display: flex;
+  flex-direction: column;
+  width: 1200px;
+  margin: 0 auto;
+}
+footer .footer-des {
+  margin: 10px 0;
+  font-weight: bold;
+}
+footer .logo-wrap {
+  display: flex;
+  gap: 30px;
+}
+footer .logo-wrap .footer-logo {
+  width: 22px;
+  height: 28px;
+}
+footer .logo-wrap .footer-logo img {
+  width: 100%;
+  height: 100%;
+}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let i, userN;
+      userN = Number(prompt("행 입력"));
+      let output = ""; // 결과를 저장할 변수
+
+      for (i = 0; i < userN; i++) {
+        let star = "*".repeat(i + 1); // 현재 행에 출력할 별의 개수
+        let blank = " ".repeat(userN - i - 1); // 각 행의 앞에 추가할 공백 계산
+        output += blank + star + "<br>"; // 결과에 현재 행 추가
+      }
+
+      // 결과를 출력
+      document.body.innerHTML = output;
+    </script>
+  </body>
+</html>

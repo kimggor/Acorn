@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+  </head>
+  <body>
+    <script>
+      let math, kor, eng, avg;
+      math = Number(prompt("수학점수:"));
+      kor = Number(prompt("국어점수:"));
+      eng = Number(prompt("영어점수:"));
+
+      document.write(
+        "<h2>수학: </h2>" +
+          math +
+          "<h2>국어: </h2>" +
+          kor +
+          "<h2>영어: </h2>" +
+          eng
+      );
+
+      avg = (math + kor + eng) / 3;
+      document.write("<h2>평균: </h2>" + avg.toFixed(2) + "<br>");
+
+      let grade = "학점: ";
+      if (avg >= 90) {
+        grade += "A";
+      } else if (avg >= 80) {
+        grade += "B";
+      } else if (avg >= 70) {
+        grade += "C";
+      } else if (avg >= 60) {
+        grade += "D";
+      } else {
+        grade += "F";
+      }
+
+      document.write("<h2>" + grade + "</h2>");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #output {
+        font-family: Arial, sans-serif;
+        margin-top: 20px;
+      }
+      .result {
+        line-height: 1.6;
+      }
+    </style>
+    <script>
+      function gugudan(n) {
+        let result = "";
+        let m = parseInt(n);
+        if (isNaN(m) || m < 1 || m > 9) {
+          alert("범위 오류");
+          return;
+        }
+        for (let i = 1; i < 10; i++) {
+          result += `<div class="result">${m} * ${i} = ${m * i}</div>`;
+        }
+        document.getElementById("output").innerHTML = result;
+      }
+    </script>
+  </head>
+  <body>
+    <div id="output"></div>
+    <script>
+      let n = prompt("단 입력");
+      gugudan(n);
+    </script>
+  </body>
+</html>

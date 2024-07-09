@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      #item div {
+        width: 300px;
+      }
+      #item div img {
+        width: 300px;
+      }
+      #item button {
+        width: 300px;
+        margin-top: 10px;
+      }
+      #item #desc {
+        text-align: center;
+        display: none;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="item">
+      <div class="image">
+        <img src="../images/짬뽕.webp" alt="짬뽕 이미지" />
+      </div>
+      <button onclick="showDetail()">상세 설명 보기</button>
+      <div id="desc">
+        <h4>짬뽕</h4>
+        <p>
+          사진에 대한 내용 <br />
+          ㅁㄴㅇㅁㄴㅇㅁㄴ
+        </p>
+        <button onclick="hideDetail()">상세 설명 닫기</button>
+      </div>
+    </div>
+    <script>
+      function showDetail() {
+        document.querySelector("#desc").style.display = "block";
+      }
+      function hideDetail() {
+        document.querySelector("#desc").style.display = "none";
+      }
+    </script>
+  </body>
+</html>

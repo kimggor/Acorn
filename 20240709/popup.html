@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let newWin = window.open(
+        "pop12.html",
+        "pop",
+        "width=300,height=300,left=300"
+      );
+      if (newWin == null) {
+        alert("팝업이 차단");
+      }
+      newWin.moveBy(100, 100);
+    </script>
+  </body>
+</html>

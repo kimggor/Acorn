@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <img
+      src="../images/벚꽃.jpg"
+      alt=""
+      id="pic"
+      style="width: 300px; margin: 0 auto"
+    />
+    <script>
+      let pic = document.querySelector("#pic");
+      pic.onclick = function (event) {
+        alert(
+          "이벤트 유형" +
+            event.type +
+            ",이벤트 빌드 페이지" +
+            event.pageX +
+            "," +
+            event.pageY
+        );
+        alert("sda", this.src);
+      };
+    </script>
+  </body>
+</html>
