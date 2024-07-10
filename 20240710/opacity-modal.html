@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic Modal</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      button {
+        margin: 20% 50%;
+        width: 100px;
+        padding: 10px;
+      }
+      .modal {
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 20px;
+        visibility: hidden;
+        transition: all 0.3s ease-in-out;
+        opacity: 0;
+
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .modal-content {
+        max-width: 500px;
+        width: 100%;
+        height: 150px;
+        background-color: white;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+        opacity: 0;
+        transition: all 0.3s ease-in-out;
+        transform: scale(0.8);
+      }
+
+      .modal.show {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .modal.show .modal-content {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .close:hover {
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="modalBtn">모달 열기</button>
+
+    <div id="Modal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="closeBtn">&times;</span>
+        <p>모달 내용</p>
+      </div>
+    </div>
+
+    <script>
+      // elements
+      const modalBtn = document.getElementById("modalBtn");
+      const modal = document.getElementById("Modal");
+      const closeBtn = document.getElementById("closeBtn");
+
+      // functions
+      const toggleModal = () => {
+        modal.classList.toggle("show");
+      };
+
+      // events
+      modalBtn.addEventListener("click", () => {
+        toggleModal();
+      });
+      closeBtn.addEventListener("click", () => {
+        toggleModal();
+      });
+    </script>
+  </body>
+</html>

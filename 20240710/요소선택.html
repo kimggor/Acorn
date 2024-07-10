@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2 id="title">JS 요소 선택</h2>
+    <main>
+      <section>
+        <article>
+          <ul class="list">
+            <li class="item1">1</li>
+            <li class="item2">2</li>
+            <li class="item3">3</li>
+            <li class="item4">4</li>
+          </ul>
+        </article>
+      </section>
+    </main>
+    <script>
+      const list = document.querySelector(".list");
+      const items = list.children;
+      const item2 = document.querySelector(".item2");
+      const li = document.querySelector("li");
+      const item3 = document.querySelector(".item3");
+
+      console.log(item2.parentElement);
+      console.log(li.closest("article"));
+      console.log(item3.previousElementSibling);
+      console.log(item3.nextElementSibling);
+    </script>
+  </body>
+</html>

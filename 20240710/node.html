@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2 id="title"></h2>
+    <section id="wrap">
+      <article class="box1">1</article>
+      <article class="box2">2</article>
+      <article class="box3">3</article>
+      <article class="box4">4</article>
+    </section>
+    <script>
+      const title = document.querySelector("#title");
+      const wrap = document.getElementById("wrap");
+      const items = document.querySelectorAll("article");
+
+      console.log(title);
+      console.log(wrap);
+      console.log(items);
+    </script>
+  </body>
+</html>

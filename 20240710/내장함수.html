@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const date = new Date();
+      document.write(
+        `오늘은 ${date.getFullYear()}년 ${
+          date.getMonth() + 1
+        }월 ${date.getDate()}일 입니다.<br><br>`
+      );
+      document.write(
+        `현재 시각은 ${date.getHours()}시 ${date.getMinutes()}분 ${date.getUTCSeconds()}초 입니다<br><br>`
+      );
+      const specialDays = new Array("일", "월", "화", "수", "목", "금", "토");
+      document.write(specialDays[date.getDay()] + "요일입니다<br><br>");
+
+      console.log(Math.random());
+      console.log(Math.floor(Math.random() * 100));
+    </script>
+  </body>
+</html>

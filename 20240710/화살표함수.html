@@ -1,0 +1,135 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 150px;
+        height: 150px;
+        border: 2px solid #e5e5e5;
+      }
+      .box img {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+      }
+      .center {
+        position: fixed;
+        top: 180px;
+      }
+      .flex {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      .box-wrap {
+        display: flex;
+      }
+      .center img {
+        width: 100px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex">
+      <div class="box-wrap">
+        <div class="box">
+          <img src="../images/lightOn.png" alt="Turn On" id="turnOn" />
+        </div>
+        <div class="box">
+          <img
+            src="../images/lightOff.png"
+            alt="Turn Off"
+            id="turnOff"
+            style="display: none"
+          />
+        </div>
+      </div>
+      <div class="center">
+        <img src="../images/turnOn.png" alt="" id="switchOn" />
+      </div>
+    </div>
+    <script>
+      const turnOn = document.getElementById("switchOn");
+      const imgTurnOn = document.querySelector("#turnOn");
+      const imgTurnOff = document.querySelector("#turnOff");
+
+      turnOn.addEventListener("click", () => {
+        if (imgTurnOn.style.display === "none") {
+          imgTurnOn.style.display = "block";
+          imgTurnOff.style.display = "none";
+          turnOn.src = "../images/turnOn.png";
+        } else {
+          imgTurnOn.style.display = "none";
+          imgTurnOff.style.display = "block";
+          turnOn.src = "../images/turnOff.png";
+        }
+      });
+    </script>
+  </body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 150px;
+        height: 150px;
+        border: 2px solid #e5e5e5;
+      }
+      .box img {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+      }
+      .center {
+        position: fixed;
+        top: 180px;
+      }
+      .flex {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      .box-wrap {
+        display: flex;
+      }
+      .center img {
+        width: 100px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex">
+      <div class="box">
+        <img src="../images/lightOn.png" alt="Turn On" id="turnOn" />
+      </div>
+      <div class="center">
+        <img src="../images/turnOn.png" alt="" id="switchOn" />
+      </div>
+    </div>
+    <script>
+      const switchOn = document.getElementById("switchOn");
+      const imgTurnOn = document.querySelector("#turnOn");
+
+      switchOn.addEventListener("click", () => {
+        if (imgTurnOn.src.includes("lightOn.png")) {
+          imgTurnOn.src = "../images/lightOff.png";
+          switchOn.src = "../images/turnOff.png";
+        } else {
+          imgTurnOn.src = "../images/lightOn.png";
+          switchOn.src = "../images/turnOn.png";
+        }
+      });
+    </script>
+  </body>
+</html>

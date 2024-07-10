@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #modal-box {
+        border: 1px solid;
+        position: fixed;
+        background-color: #e5e5e5;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        /* display: flex; */
+        display: none;
+        justify-content: center;
+        align-items: center;
+      }
+      #modal-box.active {
+        display: flex;
+      }
+      #modal-contents {
+        width: 300px;
+        height: 200px;
+        border: 3px dashed orange;
+        padding: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="open">프로필 보기</button>
+    <div id="modal-box">
+      <div id="modal-contents">
+        <span id="title">My Profile</span>
+        <button id="close">프로필 닫기</button>
+      </div>
+    </div>
+    <script>
+      const openProfile = document.querySelector("#open");
+      const closeProfile = document.querySelector("#close");
+
+      const ModalBox = document.querySelector("#modal-box");
+
+      //   직접 스타일변경으로
+      //   openProfile.addEventListener("click", () => {
+      //     openModalBox.style.display = "flex";
+      //   });
+      //   closeProfile.addEventListener("click", () => {
+      //     openModalBox.style.display = "none";
+      //   });
+
+      //클래스 추가하여 변경
+      openProfile.addEventListener("click", () => {
+        ModalBox.classList.add("active");
+      });
+      closeProfile.addEventListener("click", () => {
+        ModalBox.classList.remove("active");
+      });
+    </script>
+  </body>
+</html>

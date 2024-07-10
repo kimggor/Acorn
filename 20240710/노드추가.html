@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>DOM에 요소 추가 전에 요소노드 추가</p>
+    <p>1.요소 노드 만들기 createElement()매서드</p>
+    <p>2.텍스트 노드 만들기 createTextNode()메서드</p>
+    <p>3.자식 노드 연결하기 appendChild()매서드</p>
+    <button href="#" onclick="addContents();">aaaaa</button>
+    <div id="info"></div>
+    <script>
+      function addContents() {
+        const newP = document.createElement("p");
+        const textNode = document.createTextNode("추가될 내용");
+        newP.appendChild(textNode);
+        newP.onclick = function () {
+          this.remove();
+        };
+        document.getElementById("info").appendChild(newP);
+        // document.body.appendChild(newP);
+      }
+    </script>
+  </body>
+</html>
