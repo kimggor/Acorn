@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://kit.fontawesome.com/db3c20a06c.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 70vw;
+        height: 80vh;
+        margin: 90px auto;
+        background-repeat: no-repeat;
+        border: 2px solid #e5e5e5;
+        background-size: cover;
+        background-position: center;
+      }
+      .arrow {
+        cursor: pointer;
+      }
+      #right,
+      #left {
+        height: 100%;
+        display: flex;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <i class="fa-solid fa-arrow-left fa-xl arrow" id="left"></i>
+
+      <i class="fa-solid fa-arrow-right fa-xl arrow" id="right"></i>
+    </div>
+    <script>
+      const container = document.querySelector("#container");
+      const pics = [`pic-1.jpg`, `pic-2.jpg`, `pic-3.jpg`, `pic-4.jpg`];
+
+      // 초기 배경 이미지 설정
+      container.style.backgroundImage = `url(../images/${pics[0]})`;
+
+      const arrows = document.querySelectorAll(".arrow");
+      let i = 0;
+
+      arrows.forEach((arrow) => {
+        arrow.addEventListener("click", (e) => {
+          if (e.target.id === "left") {
+            i--;
+            if (i < 0) {
+              i = pics.length - 1;
+            }
+          } else if (e.target.id === "right") {
+            i++;
+            if (i >= pics.length) {
+              i = 0;
+            }
+          }
+          container.style.backgroundImage = `url(../images/${pics[i]})`;
+        });
+      });
+    </script>
+  </body>
+</html>

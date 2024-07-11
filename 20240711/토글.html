@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #toggle-box {
+        position: fixed;
+        top: 5%;
+        right: 5%;
+      }
+      #contents {
+        width: 450px;
+        height: 150px;
+        background-color: antiquewhite;
+        border: 5px dashed gray;
+        text-align: center;
+        padding: 60px;
+        border-radius: 5%;
+        font-weight: bold;
+      }
+      .dark {
+        background-color: #222;
+      }
+      .dark #contents {
+        width: 450px;
+        height: 150px;
+        background-color: hotpink;
+        border: 5px dashed blue;
+        text-align: center;
+        padding: 60px;
+        border-radius: 5%;
+        color: white;
+        font-weight: bold;
+      }
+      button {
+        background-color: pink;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="toggle-box">
+      <button>모드 전환</button>
+      <div id="contents">
+        <p>classList와 toggle 매서드</p>
+      </div>
+    </div>
+    <script>
+      const toggle = document.querySelector("button");
+      toggle.addEventListener("click", () => {
+        document.body.classList.toggle("dark");
+      });
+    </script>
+  </body>
+</html>

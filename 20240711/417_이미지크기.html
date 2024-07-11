@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body onload="changeImage()">
+    <h3>onload() 이미지 크기 출력,onchange() 이미지 변경</h3>
+    <hr />
+    <form>
+      <select name="" id="food" onchange="changeImage()">
+        <option value="../images/짜장면.jpg">짜장면</option>
+        <option value="../images/김치찌개.jpg">김치찌개</option>
+        <option value="../images/크루아상.jpg">크루아상</option>
+      </select>
+      <span id="size">이미지 크기</span>
+    </form>
+    <p><img src="../images/짜장면.jpg" alt="" id="myImg" /></p>
+    <script>
+      const changeImage = () => {
+        const food = document.getElementById("food");
+        const img = document.getElementById("myImg");
+        const size = document.getElementById("size");
+
+        img.onload = () => {
+          size.innerHTML = `${img.width}x${img.height}`;
+        };
+
+        const index = food.selectedIndex;
+        img.src = food.options[index].value;
+      };
+
+      document.addEventListener("DOMContentLoaded", changeImage);
+    </script>
+  </body>
+</html>
