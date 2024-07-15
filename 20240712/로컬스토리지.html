@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      #container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      h1 {
+        margin: 20px;
+      }
+      ul {
+        list-style: none;
+      }
+      i {
+        cursor: pointer;
+      }
+      input {
+        width: 80%;
+        text-align: center;
+        border: 0;
+        outline: none;
+        font-size: 20px;
+      }
+      #todoForm {
+        display: flex;
+      }
+      #todoForm #add {
+        display: block;
+      }
+      form {
+        margin: 20px;
+      }
+      #itemList {
+        width: 250px;
+      }
+      #todoList li {
+        display: flex;
+        border-bottom: 1px solid #e5e5e5;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        margin-bottom: 20px;
+      }
+      #todoList li.done {
+        text-decoration: line-through;
+        color: #e5e5e5;
+      }
+      button {
+        background-color: #0373e4;
+        border-radius: 50%;
+        width: 40px;
+        color: #fff;
+        border-color: white;
+        height: 40px;
+      }
+    </style>
+    <script
+      src="https://kit.fontawesome.com/db3c20a06c.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div id="container">
+      <h1>ToDo-List</h1>
+      <form id="todoForm" action="">
+        <input type="text" id="item" autofocus placeholder="해야 할 일 입력" />
+        <button id="add" class="addBtn">
+          <i class="fas fa-plus fa-xl"></i>
+        </button>
+      </form>
+      <div id="itemList">
+        <ul id="todoList"></ul>
+      </div>
+    </div>
+    <script>
+      let itemList = [];
+      const addBtn = document.querySelector('#add');
+      const todoForm = document.querySelector('#todoForm');
+      const todoList = document.querySelector('#todoList');
+
+      const addList = (e) => {
+        e.preventDefault(); // 폼 제출 방지
+        const item = document.querySelector('#item').value.trim();
+        if (item) {
+          //입력값 추가
+          const listItem = document.createElement('li');
+          listItem.textContent = item;
+
+          //입력값 삭제 버튼 추가
+          const removeBtn = document.createElement('i');
+          removeBtn.classList.add('fa-solid', 'fa-trash');
+          removeBtn.style.marginLeft = '10px'; // 삭제 버튼과 텍스트 간격
+          removeBtn.addEventListener('click', () => {
+            removeItem(item, listItem);
+          });
+
+          listItem.appendChild(removeBtn);
+          todoList.appendChild(listItem);
+          itemList.push(item);
+          // 입력 필드 초기화
+          document.querySelector('#item').value = '';
+
+          // 로컬 스토리지에 항목 저장
+          window.localStorage.setItem('todoList', JSON.stringify(itemList));
+        }
+      };
+      const remove = [];
+
+      const removeItem = (item, listItem) => {
+        itemList = itemList.filter((i) => i !== item);
+        window.localStorage.setItem('todoList', JSON.stringify(itemList));
+        todoList.removeChild(listItem);
+      };
+
+      // 페이지 로드 시 로컬 스토리지에서 항목을 불러오기
+      window.addEventListener('load', () => {
+        const storedList = JSON.parse(window.localStorage.getItem('todoList'));
+        if (storedList) {
+          storedList.forEach((item) => {
+            itemList.push(item);
+
+            const listItem = document.createElement('li');
+            listItem.textContent = item;
+
+            const removeBtn = document.createElement('i');
+            removeBtn.classList.add('fa-solid', 'fa-trash');
+            removeBtn.style.marginLeft = '10px'; // 삭제 버튼과 텍스트 간격
+            removeBtn.addEventListener('click', () =>
+              removeItem(item, listItem),
+            );
+
+            listItem.appendChild(removeBtn);
+            todoList.appendChild(listItem);
+          });
+        }
+      });
+      fetch('${assad}');
+      todoForm.addEventListener('submit', addList);
+    </script>
+  </body>
+</html>

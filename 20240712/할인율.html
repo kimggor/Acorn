@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>할인 계산기</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 50px;
+        justify-content: center;
+      }
+      div {
+        margin-bottom: 20px;
+      }
+      p {
+        margin: 0;
+        font-weight: bold;
+      }
+      input {
+        width: 200px;
+        height: 30px;
+        font-size: 16px;
+        padding: 5px;
+        margin-top: 5px;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      #result {
+        margin-top: 20px;
+        font-size: 18px;
+        color: green;
+        font-weight: bold;
+      }
+    </style>
+    <!-- es-hangul 라이브러리 불러오기 -->
+    <script src="https://cdn.jsdelivr.net/npm/es-hangul@0.0.5/dist/es-hangul.umd.js"></script>
+  </head>
+  <body>
+    <div>
+      <p>원래가격</p>
+      <input id="originalPrice" />원
+    </div>
+    <div>
+      <p>할인가격</p>
+      <input id="discountedPrice" />%
+    </div>
+    <div><button onclick="calculateDiscount()">할인율계산</button></div>
+    <div id="result"></div>
+
+    <script>
+      const units = ['', '만', '억', '조'];
+
+      const calculateDiscount = () => {
+        const originalPrice = parseInt(
+          document.getElementById('originalPrice').value,
+        );
+        const discountedPrice = parseInt(
+          document.getElementById('discountedPrice').value,
+        );
+
+        if (isNaN(originalPrice) || isNaN(discountedPrice)) {
+          document.getElementById('result').innerText =
+            '올바른 숫자를 입력해주세요';
+          return;
+        }
+
+        const discountRate = originalPrice * (discountedPrice / 100);
+        const finalPrice = originalPrice - discountRate;
+
+        document.getElementById('result').innerText = `최종가격: ${formatNumber(
+          parseInt(finalPrice),
+        )}원 (${convertToKoreanUnits(parseInt(finalPrice))}원)`;
+
+        // es-hangul 라이브러리를 사용하여 한글 금액 변환
+        const hangulPrice = esHangul.amountToHangul(finalPrice);
+        console.log(hangulPrice);
+      };
+
+      const formatNumber = (num) => {
+        return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+      };
+
+      const convertToKoreanUnits = (num) => {
+        if (num === 0) return '0원';
+
+        let result = '';
+        let unitIndex = 0;
+
+        while (num > 0) {
+          const convertToWon = num % 10000;
+          if (convertToWon > 0) {
+            result = `${convertToWon}${units[unitIndex]} ${result}`;
+          }
+          num = Math.floor(num / 10000);
+          unitIndex++;
+        }
+
+        return result.trim();
+      };
+    </script>
+  </body>
+</html>

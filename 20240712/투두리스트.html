@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .pink {
+        color: pink;
+        background-color: lightgray;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li class="check">&check;할 일1</li>
+      <li class="check">&check;할 일2</li>
+      <li class="check">&check;할 일3</li>
+      <li class="check">&check;할 일4</li>
+      <li class="check">&check;할 일5</li>
+    </ul>
+    <script>
+      let listB = document.querySelectorAll('.check');
+
+      listB.forEach((item) => {
+        item.addEventListener('click', () => {
+          item.classList.toggle('pink');
+        });
+      });
+      let a = 5;
+      let b = 1;
+      let sum = (a, b) => {
+        return a + b;
+      };
+    </script>
+  </body>
+</html>

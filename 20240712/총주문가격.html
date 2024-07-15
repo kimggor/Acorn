@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #container {
+        width: 500px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h2>총 주문 가격 확인</h2>
+      <hr />
+      <form action="">
+        <fieldset>
+          <legend>기본 가격</legend>
+          <p>30,000원</p>
+        </fieldset>
+        <fieldset>
+          <legend>추가주문</legend>
+          <label
+            ><input type="checkbox" class="checkbx" value="1200" />기장
+            추가(1,200원)</label
+          >
+          <label
+            ><input
+              type="checkbox"
+              class="checkbx"
+              value="3000"
+            />배송비용추가(3,000원)</label
+          >
+          <label
+            ><input type="checkbox" class="checkbx" value="2000" />산간지역
+            추가(2,000원)</label
+          >
+        </fieldset>
+        <fieldset>
+          <legend>합계</legend>
+          <input type="text" id="total" name="total" class="price" readonly />
+        </fieldset>
+      </form>
+    </div>
+    <script>
+      let basePrice = 30000;
+      const checkBox = document.querySelectorAll('.checkbx');
+      const totalPrice = document.getElementById('total');
+
+      function sumPrice() {
+        let total = basePrice;
+        checkBox.forEach((item) => {
+          if (item.checked) {
+            total += parseInt(item.value);
+          }
+        });
+        totalPrice.value = total.toLocaleString() + '원';
+      }
+      checkBox.forEach((item) => {
+        item.addEventListener('click', sumPrice);
+      });
+      sumPrice();
+    </script>
+  </body>
+</html>

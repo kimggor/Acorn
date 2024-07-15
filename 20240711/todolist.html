@@ -39,39 +39,39 @@
     <script>
       // "추가" 버튼에 클릭 이벤트 리스너를 추가
       document
-        .getElementById("addButton")
-        .addEventListener("click", addToDoList);
+        .getElementById('addButton')
+        .addEventListener('click', addToDoList);
 
       // 할 일을 추가하는 함수입니다.
       function addToDoList() {
         // 입력 필드에서 텍스트를 가져와 앞뒤 공백을 제거
-        const toDoText = document.getElementById("toDoText").value.trim();
+        const toDoText = document.getElementById('toDoText').value.trim();
 
         // 텍스트가 비어 있지 않은 경우에만 새로운 할 일을 추가
         if (toDoText) {
           // 새로운 리스트 아이템(li)을 생성
-          const newLi = document.createElement("li");
+          const newLi = document.createElement('li');
 
           // 새로운 텍스트 노드를 생성하고 리스트 아이템에 추가
           const newTextNode = document.createTextNode(toDoText);
           newLi.appendChild(newTextNode);
 
           // 삭제 버튼을 생성
-          const removeBtn = document.createElement("button");
+          const removeBtn = document.createElement('button');
           // 삭제 버튼에 "x" 텍스트를 설정
-          removeBtn.textContent = "x";
+          removeBtn.textContent = 'x';
 
           // 삭제 버튼에 클릭 이벤트 리스너를 추가하여 버튼 클릭 시 리스트 아이템을 제거
-          removeBtn.addEventListener("click", () => newLi.remove());
+          removeBtn.addEventListener('click', () => newLi.remove());
 
           // 리스트 아이템에 삭제 버튼을 추가
           newLi.appendChild(removeBtn);
 
           // 리스트에 새로운 리스트 아이템을 추가
-          document.getElementById("list").appendChild(newLi);
+          document.getElementById('list').appendChild(newLi);
 
           // 입력 필드를 초기화하여 사용자가 새로운 할 일을 입력할 수 있도록
-          document.getElementById("toDoText").value = "";
+          document.getElementById('toDoText').value = '';
         }
       }
     </script>
