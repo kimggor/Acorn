@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -20,17 +20,17 @@
         return lottoNums;
       }
 
-      const lottoButton = document.querySelector("#lotto");
-      const resultDiv = document.querySelector("#result");
+      const lottoButton = document.querySelector('#lotto');
+      const resultDiv = document.querySelector('#result');
 
-      lottoButton.addEventListener("click", () => {
-        resultDiv.innerHTML = ""; // 기존 결과를 초기화
+      lottoButton.addEventListener('click', () => {
+        resultDiv.innerHTML = ''; // 기존 결과를 초기화
         const allLottoNums = [];
         for (let i = 0; i < 5; i++) {
           const lottoNums = generateLottoNumbers();
           allLottoNums.push(lottoNums);
-          const lottoLine = document.createElement("p");
-          lottoLine.textContent = `Line ${i + 1}: [${lottoNums.join(", ")}]`;
+          const lottoLine = document.createElement('p');
+          lottoLine.textContent = `Line ${i + 1}: [${lottoNums.join(', ')}]`;
           resultDiv.appendChild(lottoLine);
         }
       });

@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      button {
+        cursor: pointer;
+      }
+      #container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-grow: 1;
+      }
+      h1 {
+        padding: 20px;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+      }
+      ul {
+        list-style: none;
+      }
+      i {
+        cursor: pointer;
+      }
+      input {
+        width: 80%;
+        text-align: center;
+        border: 0;
+        outline: none;
+        font-size: 20px;
+      }
+      #todoForm {
+        display: flex;
+      }
+      .clear {
+        background-color: white;
+        border-radius: 10px;
+        width: 80px;
+        padding: 8px;
+        margin-right: 4px;
+        border: 1px solid #e5e5e5;
+      }
+      .clear:hover {
+        background-color: #0373e4;
+        color: #fff;
+        border: none;
+      }
+      #todoForm #add {
+        display: block;
+      }
+      form {
+        margin: 20px;
+      }
+      #itemList {
+        width: 250px;
+      }
+      #todoList li {
+        display: flex;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        margin-bottom: 20px;
+      }
+      #todoList li.done {
+        text-decoration: line-through;
+        color: #e5e5e5;
+      }
+      #item {
+        border: 1px solid #e5e5e5;
+        border-radius: 10px;
+      }
+      .addBtn {
+        background-color: #0373e4;
+        border-radius: 50%;
+        width: 40px;
+        color: #fff;
+        border-color: white;
+        height: 40px;
+      }
+      .wrap {
+        display: flex;
+        justify-content: space-between;
+      }
+      #recommend-set {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+
+        align-items: center;
+        border-left: 2px solid #e5e5e5;
+        padding-left: 20px;
+        margin: 20px;
+      }
+      .set {
+        width: 100%;
+        margin-bottom: 12px;
+        background-color: white;
+        height: 60px;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 20px;
+      }
+      #recommend-set .title {
+        margin-bottom: 20px;
+      }
+      .set:hover {
+        background-color: #0373e4;
+        color: white;
+        transition: all 0.2s;
+        transform: scale(1.05);
+      }
+    </style>
+    <script src="https://kit.fontawesome.com/db3c20a06c.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="wrap">
+      <div id="container">
+        <h1>ToDo-List</h1>
+        <form id="todoForm" action="">
+          <button class="clear" id="setClear">초기화</button>
+          <input type="text" id="item" autofocus placeholder="해야 할 일 입력" />
+          <button id="add" class="addBtn">
+            <i class="fas fa-plus fa-xl"></i>
+          </button>
+        </form>
+
+        <div id="itemList">
+          <ul id="todoList"></ul>
+        </div>
+      </div>
+      <div id="recommend-set">
+        <div class="title">
+          <h3>여행 준비물 추천 리스트</h3>
+        </div>
+        <button class="set" id="essentialSet">
+          <h4>필수 요소</h4>
+          <p>여권,지갑,핸드폰,환전,유심</p>
+        </button>
+        <button class="set" id="cleaningSet">
+          <h4>세안</h4>
+          <p>치약,칫솔,클렌징폼,선크림,로션,빗</p>
+        </button>
+        <button class="set" id="etcSet">
+          <h4>기타</h4>
+          <p>충전기,이어폰,셀카봉,우산</p>
+        </button>
+      </div>
+    </div>
+    <script>
+      const itemList = [];
+      const todoForm = document.getElementById('todoForm');
+      const todoList = document.getElementById('todoList');
+      const clearBtn = document.getElementById('setClear');
+
+      const createListItem = item => {
+        const listItem = document.createElement('li');
+        listItem.textContent = item;
+
+        const removeBtn = document.createElement('i');
+        removeBtn.classList.add('fas', 'fa-trash');
+        removeBtn.style.margin = '10px';
+        removeBtn.addEventListener('click', () => {
+          removeListItem(listItem, item);
+        });
+
+        listItem.appendChild(removeBtn);
+        return listItem;
+      };
+
+      const addList = e => {
+        e.preventDefault();
+        const item = document.getElementById('item').value.trim();
+        if (item) {
+          itemList.push(item);
+          todoList.appendChild(createListItem(item));
+          document.getElementById('item').value = '';
+          console.log(itemList);
+        }
+      };
+
+      const addSetList = items => {
+        items.forEach(item => {
+          itemList.push(item);
+          todoList.appendChild(createListItem(item));
+        });
+        console.log(itemList);
+      };
+
+      const removeListItem = (listItem, item) => {
+        todoList.removeChild(listItem);
+        const index = itemList.indexOf(item);
+        if (index > -1) {
+          itemList.splice(index, 1);
+        }
+        console.log(itemList);
+      };
+
+      const removeAllListItem = () => {
+        if (confirm('정말 삭제하시겠습니까?')) {
+          while (todoList.firstChild) {
+            todoList.removeChild(todoList.firstChild);
+          }
+          itemList.splice(0, itemList.length);
+        }
+      };
+
+      document.getElementById('essentialSet').addEventListener('click', () => {
+        addSetList(['여권', '지갑', '핸드폰', '환전', '유심']);
+      });
+
+      document.getElementById('cleaningSet').addEventListener('click', () => {
+        addSetList(['치약', '칫솔', '클렌징폼', '선크림', '로션', '기타 세면도구']);
+      });
+
+      document.getElementById('etcSet').addEventListener('click', () => {
+        addSetList(['충전기', '이어폰', '셀카봉', '우산']);
+      });
+
+      clearBtn.addEventListener('click', e => {
+        e.preventDefault();
+        removeAllListItem();
+      });
+      todoForm.addEventListener('submit', e => {
+        e.preventDefault();
+        addList(e);
+      });
+    </script>
+  </body>
+</html>
