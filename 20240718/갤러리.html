@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="gallery">갤러리</div>
+      <button>다음</button>
+    </div>
+
+    <script>
+      const messages = [
+        '여름이 왔네요',
+        '프론트 프롬포트 시작 몇일 전 !!',
+        '밖은 덥지만 에어컨은 시원해요',
+        '여기가 천국',
+      ];
+      const nextBtn = document.querySelector('button');
+      const gallery = document.querySelector('.gallery');
+      let currentIndex = 0;
+
+      const nextText = () => {
+        gallery.textContent = messages[currentIndex];
+        currentIndex = (currentIndex + 1) % messages.length;
+      };
+      nextBtn.addEventListener('click', nextText);
+    </script>
+  </body>
+</html>

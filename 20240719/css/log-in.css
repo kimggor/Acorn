@@ -1,0 +1,91 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+ul {
+  list-style: none;
+}
+hr {
+  border: 1px solid #c5ccd2;
+}
+button {
+  cursor: pointer;
+}
+.header-wrap {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 20px 20px 20px;
+  border-bottom: 1px solid #c5ccd2;
+}
+header .logo {
+  background-image: url(/images/acorn_logo.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 350px;
+  height: 40px;
+}
+header .search-box {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+header .search-box input {
+  height: 30px;
+}
+header .search-box i {
+  position: absolute;
+  left: 146px;
+}
+.content-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+table {
+  width: 800px;
+  border: 1px solid rgb(227, 216, 216);
+}
+table tr {
+  height: 40px;
+}
+tr:nth-child(3),
+tr:nth-child(7) {
+  height: 70px;
+}
+table td {
+  border: 1px solid rgb(227, 216, 216);
+  font-size: 12px;
+}
+table input,
+select {
+  width: 150px;
+  height: 30px;
+}
+table button {
+  width: 150px;
+  height: 40px;
+  border: none;
+}
+.submit-wrap button {
+  width: 100px;
+  border: none;
+}
+.error-message {
+  color: red;
+}

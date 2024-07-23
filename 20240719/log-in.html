@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/20240719/css/log-in.css" />
+  </head>
+  <body>
+    <div class="header-wrap">
+      <header>
+        <div class="logo"></div>
+        <div class="search-box"><input type="text" /><i class="fa-solid fa-magnifying-glass"></i></div>
+      </header>
+      <nav class="member-wrap">
+        <a href="login.html"><span class="login">로그인</span></a>
+        <a href="signup.html"><span class="sign-up">회원가입</span></a>
+        <a href="index.html"><span class="home">홈으로</span></a>
+        <a href="log-in.html"><span>회원가입2</span></a>
+      </nav>
+    </div>
+    <div class="content-wrap">
+      <h3>회원가입</h3>
+      <table>
+        <tr>
+          <td>이름</td>
+          <td class="name">
+            <input type="text" name="userName" id="userName" />
+            <p class="error-message" id="nameError"></p>
+          </td>
+        </tr>
+        <tr>
+          <td>아이디</td>
+          <td class="id">
+            <input type="text" name="userId" id="userId" />
+            <p class="error-message" id="idError"></p>
+          </td>
+        </tr>
+        <tr>
+          <td>비밀번호</td>
+          <td class="pwd">
+            <input type="password" name="userPwd" id="userPwd" />
+            <p class="error-message" id="pwdError"></p>
+          </td>
+        </tr>
+        <tr>
+          <td>비밀번호 확인</td>
+          <td class="pwd-check">
+            <input type="password" name="userPwdCheck" id="userPwdCheck" />
+            <p class="error-message" id="pwdCheckError"></p>
+          </td>
+        </tr>
+        <tr>
+          <td>이메일</td>
+          <td>
+            <input type="text" name="userEmail" id="userEmail" />
+            <span>@</span>
+            <input type="text" name="userEmailDomain" id="userEmailDomain" />
+            <select name="emailDomainSelect" id="emailDomainSelect">
+              <option value="">선택하세요</option>
+              <option value="naver.com">naver.com</option>
+              <option value="daum.net">daum.net</option>
+              <option value="gmail.com">gmail.com</option>
+            </select>
+            <p class="error-message" id="emailError"></p>
+          </td>
+        </tr>
+        <tr>
+          <td>학년/반</td>
+          <td>
+            <select name="grade" id="gradeSelect">
+              <option value="">선택하세요</option>
+              <!-- 다른 옵션들 추가 가능 -->
+            </select>
+            <span>학년</span>
+            <select name="class" id="classSelect">
+              <option value="">선택하세요</option>
+              <!-- 다른 옵션들 추가 가능 -->
+            </select>
+            <span>반</span>
+          </td>
+        </tr>
+      </table>
+      <div class="submit-wrap">
+        <button id="join">가입</button>
+        <button id="cancel">취소</button>
+      </div>
+    </div>
+    <script>
+      const elements = {
+        userName: document.getElementById('userName'),
+        userId: document.getElementById('userId'),
+        userPwd: document.getElementById('userPwd'),
+        userPwdCheck: document.getElementById('userPwdCheck'),
+        userEmail: document.getElementById('userEmail'),
+        userEmailDomain: document.getElementById('userEmailDomain'),
+        emailDomainSelect: document.getElementById('emailDomainSelect'),
+        submit: document.getElementById('join'),
+        errors: {
+          name: document.getElementById('nameError'),
+          id: document.getElementById('idError'),
+          pwd: document.getElementById('pwdError'),
+          pwdCheck: document.getElementById('pwdCheckError'),
+          email: document.getElementById('emailError'),
+        },
+      };
+
+      const validateField = (field, errorField, message) => {
+        if (!field.value) {
+          errorField.textContent = message;
+          field.focus();
+          return false;
+        } else {
+          errorField.textContent = '';
+          return true;
+        }
+      };
+
+      const inputNullAlert = () => {
+        const valid =
+          validateField(elements.userName, elements.errors.name, '이름을 입력하세요') &&
+          validateField(elements.userId, elements.errors.id, '아이디를 입력하세요') &&
+          validateField(elements.userPwd, elements.errors.pwd, '비밀번호를 입력하세요') &&
+          validateField(elements.userPwdCheck, elements.errors.pwdCheck, '비밀번호 확인을 입력하세요') &&
+          validateField(elements.userEmail, elements.errors.email, '이메일을 입력하세요') &&
+          validateField(elements.userEmailDomain, elements.errors.email, '이메일 도메인을 선택하세요');
+
+        if (valid) {
+          alert('회원가입 성공');
+        }
+      };
+
+      elements.submit.addEventListener('click', event => {
+        event.preventDefault();
+        inputNullAlert();
+      });
+
+      elements.emailDomainSelect.addEventListener('change', () => {
+        elements.userEmailDomain.value = elements.emailDomainSelect.value;
+      });
+    </script>
+  </body>
+</html>

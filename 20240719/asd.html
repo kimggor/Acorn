@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping Cart</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      .product {
+        border: 1px solid #ddd;
+        padding: 10px;
+        margin-bottom: 10px;
+      }
+      .product h3 {
+        margin: 0;
+      }
+      .cart {
+        border-top: 1px solid #ddd;
+        padding-top: 10px;
+      }
+      .cart h2 {
+        margin-top: 0;
+      }
+      .cart-item {
+        margin-bottom: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Online Store</h1>
+    <div id="products">
+      <div class="product" data-id="1">
+        <h3>Product 1</h3>
+        <button onclick="addToCart(1, 'Product 1')">Add to Cart</button>
+      </div>
+      <div class="product" data-id="2">
+        <h3>Product 2</h3>
+        <button onclick="addToCart(2, 'Product 2')">Add to Cart</button>
+      </div>
+      <div class="product" data-id="3">
+        <h3>Product 3</h3>
+        <button onclick="addToCart(3, 'Product 3')">Add to Cart</button>
+      </div>
+    </div>
+    <div class="cart">
+      <h2>Cart</h2>
+      <div id="cart-items"></div>
+    </div>
+
+    <script>
+      const cart = [];
+
+      function addToCart(id, name) {
+        const item = { id, name };
+        cart.push(item);
+        updateCart();
+      }
+
+      function updateCart() {
+        const cartItemsContainer = document.getElementById('cart-items');
+        cartItemsContainer.innerHTML = '';
+        cart.forEach(item => {
+          const div = document.createElement('div');
+          div.className = 'cart-item';
+          div.textContent = `${item.name} (ID: ${item.id})`;
+          cartItemsContainer.appendChild(div);
+        });
+      }
+    </script>
+  </body>
+</html>

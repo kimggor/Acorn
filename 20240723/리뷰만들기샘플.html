@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=JetBrains+Mono:wght@100&family=Righteous&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: 'Black Han Sans', sans-serif;
+      }
+
+      .wrap {
+        width: 820px;
+        border: 1px solid black;
+        padding: 20px;
+        box-sizing: border-box;
+        height: auto;
+        position: relative;
+        display: flex;
+      }
+
+      .review_list {
+        width: 200px;
+        box-sizing: border-box;
+        overflow-y: auto;
+      }
+
+      .review_list button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 5px;
+        border: 1px solid #ddd;
+        background-color: #f9f9f9;
+        text-align: left;
+        cursor: pointer;
+      }
+
+      .review_list button:hover {
+        background-color: #e0e0e0;
+      }
+
+      .review_title {
+        text-align: center;
+      }
+
+      .review_row1 {
+        display: flex;
+      }
+
+      .review_row1 > div {
+        border: 1px solid black;
+        width: 50%;
+        text-align: center;
+      }
+
+      .content_col textarea {
+        width: 90%;
+        height: 150px;
+      }
+
+      .like {
+        position: absolute;
+        right: -70px;
+        bottom: 60px;
+      }
+
+      .like img {
+        width: 50px;
+        height: 50px;
+      }
+
+      .info-wrap {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0;
+      }
+
+      .info-wrap .age-wrap,
+      .satisfy-wrap,
+      .gender-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      #shopInfo {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+
+      .submit {
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+        cursor: pointer;
+        gap: 20px;
+      }
+
+      .img_col img {
+        max-width: 150px;
+        max-height: 150px;
+        object-fit: cover;
+      }
+
+      .img_col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #imgInput {
+        padding-left: 50px;
+        padding-bottom: 8px;
+        margin-top: 20px;
+      }
+
+      #dropZone {
+        border: 2px dashed black;
+        width: 300px;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-size: 16px;
+        color: #333;
+        margin: 20px auto;
+        background-color: #f9f9f9;
+        cursor: pointer;
+      }
+      .whole-wrap {
+        display: flex;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="whole-wrap">
+      <div class="wrap">
+        <div class="review_form">
+          <div class="review_title">
+            <h1>REVIEW DETAIL</h1>
+          </div>
+
+          <div class="review_row1">
+            <div class="img_col">
+              <h4>이미지</h4>
+              <img src="https://via.placeholder.com/150.jpg" alt="300 * 300 size image" id="userImg" />
+              <input type="file" id="imgInput" />
+              <div id="dropZone">Drag & Drop your files here</div>
+            </div>
+            <div class="content_col">
+              <h4>맛평가</h4>
+              <textarea id="userEvaluation"></textarea>
+            </div>
+          </div>
+
+          <div class="info-wrap">
+            <div class="age-wrap">
+              <p>연령대</p>
+              <input type="text" id="age" />
+            </div>
+            <div class="satisfy-wrap">
+              <p>만족도</p>
+              <input type="text" id="satisfy" />
+            </div>
+            <div class="gender-wrap">
+              <p>성별</p>
+              <input type="text" id="gender" />
+            </div>
+          </div>
+
+          <div class="shop-info">
+            <p>판매점 정보(구매사이트)</p>
+            <input type="text" name="shopInfo" id="shopInfo" />
+          </div>
+
+          <div class="more-info">
+            <p>더 나두고 싶은 정보</p>
+            <textarea id="additionalInfo" rows="5" cols="115"></textarea>
+          </div>
+
+          <div class="like">
+            <p>좋아요!</p>
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Bot%C3%B3n_Me_gusta.svg/1200px-Bot%C3%B3n_Me_gusta.svg.png"
+              alt="Like"
+            />
+          </div>
+
+          <div class="submit">
+            <button id="submitButton">제출</button>
+            <button id="removeButton" style="display: none">삭제</button>
+          </div>
+        </div>
+      </div>
+      <div class="review_list" id="reviewList">
+        <!-- 리뷰 목록이 여기에 추가됩니다 -->
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const submitButton = document.getElementById('submitButton');
+        const reviewList = document.getElementById('reviewList');
+        const removeButton = document.getElementById('removeButton');
+        const elements = {
+          userImg: document.getElementById('userImg'),
+          imgInput: document.getElementById('imgInput'),
+          dropZone: document.getElementById('dropZone'),
+          userEvaluation: document.getElementById('userEvaluation'),
+          userAge: document.getElementById('age'),
+          userSatisfy: document.getElementById('satisfy'),
+          userGender: document.getElementById('gender'),
+          shopInfo: document.getElementById('shopInfo'),
+          additionalInfo: document.getElementById('additionalInfo'),
+        };
+
+        let selectedReviewIndex = null;
+
+        const loadData = () => {
+          const data = JSON.parse(localStorage.getItem('reviewData'));
+          if (data) {
+            elements.userImg.src = data.userImg;
+            elements.userEvaluation.value = data.userEvaluation;
+            elements.userAge.value = data.userAge;
+            elements.userSatisfy.value = data.userSatisfy;
+            elements.userGender.value = data.userGender;
+            elements.shopInfo.value = data.shopInfo;
+            elements.additionalInfo.value = data.additionalInfo;
+          }
+        };
+
+        const saveData = () => {
+          const data = {
+            userImg: elements.userImg.src,
+            userEvaluation: elements.userEvaluation.value,
+            userAge: elements.userAge.value,
+            userSatisfy: elements.userSatisfy.value,
+            userGender: elements.userGender.value,
+            shopInfo: elements.shopInfo.value,
+            additionalInfo: elements.additionalInfo.value,
+          };
+          const allReviews = JSON.parse(localStorage.getItem('allReviews')) || [];
+          if (selectedReviewIndex !== null) {
+            allReviews[selectedReviewIndex] = data;
+            localStorage.setItem('allReviews', JSON.stringify(allReviews));
+          } else {
+            allReviews.push(data);
+            localStorage.setItem('allReviews', JSON.stringify(allReviews));
+          }
+          localStorage.setItem('reviewData', JSON.stringify(data));
+          alert('데이터가 저장되었습니다.');
+          updateReviewList();
+        };
+
+        const updateReviewList = () => {
+          const allReviews = JSON.parse(localStorage.getItem('allReviews')) || [];
+          reviewList.innerHTML = '';
+          allReviews.forEach((review, index) => {
+            const button = document.createElement('button');
+            button.textContent = `리뷰 ${index + 1}`;
+            button.addEventListener('click', () => loadReview(index));
+            reviewList.appendChild(button);
+          });
+        };
+
+        const removeData = () => {
+          if (selectedReviewIndex === null) return;
+          let allReviews = JSON.parse(localStorage.getItem('allReviews')) || [];
+          allReviews = allReviews.filter((_, index) => index !== selectedReviewIndex);
+          localStorage.setItem('allReviews', JSON.stringify(allReviews));
+          localStorage.removeItem('reviewData');
+          selectedReviewIndex = null;
+          updateReviewList();
+          loadData();
+        };
+
+        const loadReview = index => {
+          const allReviews = JSON.parse(localStorage.getItem('allReviews')) || [];
+          const data = allReviews[index];
+          if (data) {
+            elements.userImg.src = data.userImg;
+            elements.userEvaluation.value = data.userEvaluation;
+            elements.userAge.value = data.userAge;
+            elements.userSatisfy.value = data.userSatisfy;
+            elements.userGender.value = data.userGender;
+            elements.shopInfo.value = data.shopInfo;
+            elements.additionalInfo.value = data.additionalInfo;
+            selectedReviewIndex = index;
+            removeButton.style.display = 'block';
+          }
+        };
+
+        const handleImageUpload = event => {
+          const file = event.target.files[0];
+          if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+              elements.userImg.src = reader.result;
+            };
+            reader.readAsDataURL(file);
+          }
+        };
+
+        const handleDrop = event => {
+          event.preventDefault();
+          event.stopPropagation();
+          const file = event.dataTransfer.files[0];
+          if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+              elements.userImg.src = reader.result;
+            };
+            reader.readAsDataURL(file);
+          }
+        };
+
+        const handleDragOver = event => {
+          event.preventDefault();
+          event.stopPropagation();
+          elements.dropZone.style.backgroundColor = '#e0e0e0';
+        };
+
+        const handleDragLeave = event => {
+          event.preventDefault();
+          event.stopPropagation();
+          elements.dropZone.style.backgroundColor = '#f9f9f9';
+        };
+
+        elements.imgInput.addEventListener('change', handleImageUpload);
+        elements.dropZone.addEventListener('drop', handleDrop);
+        elements.dropZone.addEventListener('dragover', handleDragOver);
+        elements.dropZone.addEventListener('dragleave', handleDragLeave);
+        submitButton.addEventListener('click', saveData);
+        removeButton.addEventListener('click', removeData);
+        updateReviewList();
+        loadData();
+      });
+    </script>
+  </body>
+</html>

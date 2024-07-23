@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const ul = document.getElementById('ul');
+        const btn = document.querySelector('button');
+        btn.addEventListener('click', () => {
+          const li = document.createElement('li');
+          li.textContent = '사과';
+          ul.appendChild(li);
+
+          li.addEventListener('click', () => {
+            ul.removeChild(li);
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <button>추가</button>
+    <ul id="ul"></ul>
+  </body>
+</html>

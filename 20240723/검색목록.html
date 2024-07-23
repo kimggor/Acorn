@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search List</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .container {
+        background: white;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        text-align: center;
+      }
+
+      input {
+        width: calc(100% - 22px);
+        padding: 10px;
+        margin-bottom: 10px;
+      }
+
+      button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      li {
+        background: #007bff;
+        color: white;
+        padding: 10px;
+        margin: 5px 0;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Search List</h1>
+      <input type="text" id="searchInput" placeholder="Enter search term" />
+      <button id="addButton">Add Search Term</button>
+      <ul id="searchList"></ul>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const searchInput = document.getElementById('searchInput');
+        const addButton = document.getElementById('addButton');
+        const searchList = document.getElementById('searchList');
+
+        // 로컬 저장소에서 검색어를 불러오는 함수
+        function loadSearchTerms() {
+          const terms = JSON.parse(localStorage.getItem('searchTerms')) || [];
+          terms.forEach(term => addSearchTermToList(term));
+        }
+
+        // 검색어를 목록에 추가하는 함수
+        function addSearchTermToList(term) {
+          const li = document.createElement('li');
+          li.textContent = term;
+          searchList.appendChild(li);
+        }
+
+        // 검색어를 로컬 저장소에 저장하는 함수
+        function saveSearchTerm(term) {
+          const terms = JSON.parse(localStorage.getItem('searchTerms')) || [];
+          terms.push(term);
+          localStorage.setItem('searchTerms', JSON.stringify(terms));
+        }
+
+        // 버튼 클릭 이벤트 핸들러
+        addButton.addEventListener('click', function () {
+          const term = searchInput.value.trim();
+          if (term) {
+            addSearchTermToList(term);
+            saveSearchTerm(term);
+            searchInput.value = '';
+          }
+        });
+
+        // 페이지 로드 시 검색어를 불러오기
+        loadSearchTerms();
+      });
+    </script>
+  </body>
+</html>

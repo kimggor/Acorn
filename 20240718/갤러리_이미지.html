@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .gallery-wrap {
+        width: 300px;
+        height: 300px;
+        border: 1px solid;
+        margin: 0 auto;
+      }
+      .gallery {
+        width: 300px;
+        height: 300px;
+        background-image: url('../media/apple.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        object-fit: cover;
+      }
+
+      .left-btn,
+      .right-btn {
+        display: flex;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 1px solid;
+        align-items: center;
+        justify-content: center;
+      }
+      .btn-wrap {
+        display: flex;
+        justify-content: space-between;
+      }
+      button {
+        background-color: white;
+        border: none;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="gallery-wrap">
+      <div class="gallery"></div>
+      <div class="btn-wrap">
+        <div class="left-btn"><button>prev</button></div>
+        <div class="right-btn"><button>next</button></div>
+      </div>
+    </div>
+    <script>
+      let imgNames = [
+        '../media/Penguins.png',
+        '../media/Lighthouse.png',
+        '../media/Chrysanthemum.png',
+        '../media/Desert.png',
+        '../media/Hydrangeas.png',
+        '../media/Jellyfish.png',
+        '../media/Koala.png',
+        '../media/Tulips.png',
+      ];
+      let index = 0;
+      const nextBtn = document.querySelector('.right-btn');
+      const prevBtn = document.querySelector('.left-btn');
+      const gallery = document.querySelector('.gallery');
+
+      const nextImg = () => {
+        gallery.style.backgroundImage = "url('" + imgNames[index] + "')";
+        gallery.style.backgroundPosition = 'center';
+        gallery.style.backgroundSize = 'cover';
+        index = (index + 1) % imgNames.length;
+
+        gallery.animate([{ transform: 'translateX(100%)' }, { transform: 'translateX(0)' }], {
+          duration: 1000,
+          easing: 'ease-out', // Optional easing function
+          fill: 'forwards', // Optional fill mode
+        });
+
+        console.log(index);
+      };
+
+      const prevImg = () => {
+        gallery.style.backgroundImage = "url('" + imgNames[index] + "')";
+        gallery.style.backgroundPosition = 'center';
+        gallery.style.backgroundSize = 'cover';
+        index = (index + imgNames.length - 1) % imgNames.length;
+        console.log(index);
+      };
+
+      nextBtn.addEventListener('click', nextImg);
+      prevBtn.addEventListener('click', prevImg);
+    </script>
+  </body>
+</html>
+<!-- 0 1 2 3 4 5 6 7 -->

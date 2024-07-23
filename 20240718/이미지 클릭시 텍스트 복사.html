@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const imgElement = document.getElementById('clickableImage');
+        const textToCopy = 'This is the text to copy';
+
+        imgElement.addEventListener('click', () => {
+          const tempInput = document.createElement('input');
+          document.body.appendChild(tempInput);
+          tempInput.value = textToCopy;
+          tempInput.select();
+          tempInput.setSelectionRange(0, 99999); // For mobile devices
+          document.execCommand('copy');
+          document.body.removeChild(tempInput);
+          alert('Text copied: ' + textToCopy);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <img id="clickableImage" src="../images/google.png" alt="Clickable Image" />
+  </body>
+</html>

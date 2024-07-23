@@ -1,0 +1,131 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+ul {
+  list-style: none;
+}
+.header-wrap {
+  display: flex;
+  flex-direction: column;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 20px 8px 20px;
+}
+header .logo {
+  background-image: url(/images/acorn_logo.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 350px;
+  height: 40px;
+}
+header .search-box {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+header .search-box input {
+  height: 30px;
+}
+header .search-box i {
+  position: absolute;
+  left: 146px;
+}
+.member-wrap {
+  background-color: lightblue;
+  padding: 20px;
+}
+.member-wrap span {
+  margin-right: 12px;
+}
+.main-wrap {
+  display: flex;
+  justify-content: center;
+  min-height: calc(100% - 210px);
+}
+.main-wrap ul {
+  display: flex;
+}
+.main-wrap .card {
+  width: 300px;
+  height: 300px;
+  border: 1px solid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+}
+.main-wrap .card .card-title {
+  position: absolute;
+  width: 50%;
+  height: 15%;
+  background-color: black;
+  color: red;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0px;
+  left: 0;
+}
+.main-wrap .card .card-img {
+  width: 90%;
+  height: 90%;
+}
+.card-img.big-Data {
+  background-image: url(/images/bigData.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.card-img.Android {
+  background-image: url(/images/javaAnd.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.card-img.Front {
+  background-image: url(/images/javaWeb.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.main-wrap .card .card-info {
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: 16px;
+}
+footer {
+  width: 100%;
+  height: 80px;
+  background-color: lightgray;
+  position: relative;
+  padding: 20px 300px 20px 20px;
+  transform: translateY(0%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  white-space: nowrap;
+}
+footer .logo {
+  background-image: url(/images/acorn_logo.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  height: 40px;
+}

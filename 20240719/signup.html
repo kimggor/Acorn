@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/20240719/css/signup.css" />
+    <script src="https://kit.fontawesome.com/db3c20a06c.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="header-wrap">
+      <header>
+        <div class="logo"></div>
+        <div class="search-box"><input type="text" /><i class="fa-solid fa-magnifying-glass"></i></div>
+      </header>
+      <nav class="member-wrap">
+        <a href="login.html"><span class="login">로그인</span></a>
+        <a href="signup.html"><span class="sign-up">회원가입</span></a>
+        <a href="index.html"><span class="home">홈으로</span></a>
+        <a href="log-in.html"><span>회원가입2</span></a>
+      </nav>
+    </div>
+    <main class="main-wrap">
+      <div class="logo"></div>
+      <div class="login-info-box">
+        <div class="input-wrap">
+          <i class="fa-solid fa-user"></i>
+          <input type="text" placeholder="아이디" id="userId" />
+          <p id="errorId" class="error-message"></p>
+        </div>
+        <hr />
+        <div class="input-wrap">
+          <i class="fa-solid fa-lock"></i>
+          <input type="password" placeholder="비밀번호" id="userPwd" />
+          <p id="errorPwd" class="error-message"></p>
+        </div>
+        <hr />
+        <div class="input-wrap">
+          <i class="fa-solid far fa-envelope"></i>
+          <input type="text" placeholder="[선택] 이메일주소 (비밀번호 찾기 등 본인 확인용)" id="userEmail" />
+          <p id="errorEmail" class="error-message"></p>
+        </div>
+      </div>
+      <div class="member-info-box">
+        <div class="input-wrap">
+          <i class="fa-solid fa-user"></i>
+          <input type="text" placeholder="이름" id="userName" />
+          <p id="errorName" class="error-message"></p>
+        </div>
+        <hr />
+        <div class="input-wrap">
+          <i class="fa-regular fa-calendar"></i>
+          <input type="text" placeholder="생년월일 8자리" id="userBirth" />
+          <p id="errorBirth" class="error-message"></p>
+        </div>
+        <hr />
+        <div class="telecom">
+          <div class="input-wrap">
+            <i class="fa-solid fa-signal"></i>
+            <button id="telecomButton" class="tel-color"><span>통신사 선택</span></button>
+            <p id="errorTel" class="error-message"></p>
+          </div>
+          <ul role="menu" id="telecom_menu" class="telecom_menu">
+            <li role="presentation" class="item">
+              <button type="button" role="menuitem" class="button" data-value="SKT">
+                <span class="text">SKT</span>
+              </button>
+            </li>
+            <li role="presentation" class="item">
+              <button type="button" role="menuitem" class="button" data-value="SKT 알뜰폰">
+                <span class="text">SKT 알뜰폰</span>
+              </button>
+            </li>
+            <li role="presentation" class="item">
+              <button type="button" role="menuitem" class="button" data-value="KT">
+                <span class="text">KT</span>
+              </button>
+            </li>
+            <li role="presentation" class="item">
+              <button type="button" role="menuitem" class="button" data-value="KT 알뜰폰">
+                <span class="text">KT 알뜰폰</span>
+              </button>
+            </li>
+            <li role="presentation" class="item">
+              <button type="button" role="menuitem" class="button" data-value="LG U+">
+                <span class="text">LG U+</span>
+              </button>
+            </li>
+            <li role="presentation" class="item">
+              <button type="button" role="menuitem" class="button" data-value="LG U+ 알뜰폰">
+                <span class="text">LG U+ 알뜰폰</span>
+              </button>
+            </li>
+          </ul>
+        </div>
+        <hr />
+        <div class="radio-wrap">
+          <div class="gender">
+            <div class="left">
+              <input type="radio" name="gender" id="gender_male" value="male" />
+              <label for="gender_male">남자</label>
+            </div>
+            <div class="right">
+              <input type="radio" name="gender" id="gender_female" value="female" />
+              <label for="gender_female">여자</label>
+            </div>
+          </div>
+          <div class="native">
+            <div class="left">
+              <input type="radio" name="nationality" id="nationality_local" value="local" />
+              <label for="nationality_local">내국인</label>
+            </div>
+            <div class="right">
+              <input type="radio" name="nationality" id="nationality_foreign" value="foreign" />
+              <label for="nationality_foreign">외국인</label>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div class="input-wrap">
+          <i class="fa-solid fa-mobile-screen"></i>
+          <input type="text" placeholder="휴대전화번호" id="userPhone" />
+          <p id="errorPhone" class="error-message"></p>
+        </div>
+      </div>
+      <div class="agree">
+        <input type="checkbox" name="agreeCheck" id="agreeCheck" required />
+        <span><span class="essential">[필수]</span> 인증 약관 전체동의</span>
+      </div>
+      <div class="post">
+        <button id="reqConfirm">인증요청</button>
+      </div>
+    </main>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const telecomButton = document.getElementById('telecomButton');
+        const telecomMenu = document.getElementById('telecom_menu');
+        let selectedTelecom = '';
+
+        telecomButton.addEventListener('click', function () {
+          telecomMenu.style.display = telecomMenu.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        telecomMenu.addEventListener('click', function (e) {
+          const telColor = document.querySelector('.tel-color');
+
+          if (e.target.closest('button')) {
+            selectedTelecom = e.target.closest('button').getAttribute('data-value');
+            telecomButton.innerHTML = `<span>${selectedTelecom}</span>`;
+            telecomMenu.style.display = 'none';
+          }
+
+          telColor.style.color = 'black';
+          telColor.style.fontWeight = 'bold';
+        });
+
+        const elements = {
+          userId: document.getElementById('userId'),
+          userPwd: document.getElementById('userPwd'),
+          userEmail: document.getElementById('userEmail'),
+          userName: document.getElementById('userName'),
+          userBirth: document.getElementById('userBirth'),
+          userPhone: document.getElementById('userPhone'),
+          submitBtn: document.getElementById('reqConfirm'),
+          errors: {
+            id: document.getElementById('errorId'),
+            pwd: document.getElementById('errorPwd'),
+            email: document.getElementById('errorEmail'),
+            name: document.getElementById('errorName'),
+            birth: document.getElementById('errorBirth'),
+            telecom: document.getElementById('errorTel'),
+            phone: document.getElementById('errorPhone'),
+            gender: document.querySelector('.gender'), // 성별 오류 메시지
+            nationality: document.querySelector('.native'), // 국적 오류 메시지
+          },
+        };
+
+        const validateField = (field, errorField, message) => {
+          if (!field.value.trim()) {
+            errorField.textContent = message;
+            field.focus();
+            return false;
+          } else {
+            errorField.textContent = '';
+            return true;
+          }
+        };
+
+        const validateRadioGroup = (name, errorField) => {
+          const radios = document.getElementsByName(name);
+          const checked = Array.from(radios).some(radio => radio.checked);
+          if (!checked) {
+            errorField.style.border = '1px solid red';
+            radios[0].focus();
+            return false;
+          } else {
+            errorField.style.border = ''; // Remove border styling if valid
+            return true;
+          }
+        };
+
+        const validateNumericInput = inputElement => {
+          inputElement.addEventListener('input', function () {
+            this.value = this.value.replace(/[^0-9]/g, '');
+          });
+        };
+
+        validateNumericInput(elements.userId);
+        validateNumericInput(elements.userPwd);
+        validateNumericInput(elements.userBirth);
+        validateNumericInput(elements.userPhone);
+
+        const checkValid = () => {
+          const valid =
+            validateField(elements.userId, elements.errors.id, '아이디를 입력하세요') &&
+            validateField(elements.userPwd, elements.errors.pwd, '비밀번호를 입력하세요') &&
+            validateField(elements.userEmail, elements.errors.email, '이메일을 입력하세요') &&
+            validateField(elements.userName, elements.errors.name, '이름을 입력하세요') &&
+            validateField(elements.userBirth, elements.errors.birth, '생년월일을 입력하세요') &&
+            validateField({ value: selectedTelecom }, elements.errors.telecom, '통신사를 선택하세요') &&
+            validateField(elements.userPhone, elements.errors.phone, '휴대전화번호를 입력하세요') &&
+            validateRadioGroup('gender', elements.errors.gender) &&
+            validateRadioGroup('nationality', elements.errors.nationality);
+
+          if (valid) {
+            alert('유효성 검사 통과');
+          }
+        };
+
+        elements.submitBtn.addEventListener('click', e => {
+          e.preventDefault();
+          checkValid();
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Swiper demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- Demo styles -->
+    <style>
+      body {
+        background: #eee;
+        font-family:
+          Helvetica Neue,
+          Helvetica,
+          Arial,
+          sans-serif;
+        font-size: 14px;
+        color: #000;
+        margin: 0;
+        padding: 0;
+      }
+
+      .swiper {
+        width: 100vw;
+        margin: 0 auto;
+      }
+
+      .swiper-wrapper {
+        width: 100%;
+        height: 50vh;
+      }
+
+      .swiper-slide {
+        position: relative;
+        text-align: center;
+        font-size: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        overflow: hidden;
+        transition: background-color 0.8s; /* Add transition for smooth background color change */
+      }
+
+      .swiper-slide-active {
+        background-color: rgba(255, 255, 255, 0.5); /* Apply white background with opacity */
+      }
+
+      .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        image-rendering: -webkit-optimize-contrast; /* High-quality rendering for webkit browsers */
+      }
+
+      .swiper-wrapper::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), transparent 20.31%);
+        opacity: 0.8;
+        z-index: 1;
+      }
+
+      .swiper-pagination-bullet {
+        width: calc(100% / 11);
+        padding: 0 20px;
+        line-height: 40px;
+        height: 80px;
+        margin: 0 1px !important;
+        border-radius: 0;
+        font-weight: bold;
+        background-color: none;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .swiper-pagination-bullet span {
+        position: relative;
+        z-index: 2; /* Higher z-index to stay above the background */
+      }
+
+      .swiper-pagination-bullet-active {
+        color: #fff;
+        background-color: rgba(255, 255, 255, 0.2); /* Apply only background opacity */
+      }
+
+      .swiper-pagination-bullet-active::before {
+        z-index: 1;
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background-color: #007aff;
+        animation: fillAnimation 3.2s linear forwards;
+      }
+
+      @keyframes fillAnimation {
+        from {
+          width: 0%;
+        }
+        to {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Swiper -->
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <!-- Swiper slides will be dynamically created here -->
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      let imgNames = [
+        '../images/pic-1.jpg',
+        '../images/pic-2.jpg',
+        '../images/pic-3.jpg',
+        '../images/pic-5.jpg',
+        '../images/pic-7.webp',
+        '../images/pic-8.jpg',
+      ];
+
+      const swiperWrapper = document.querySelector('.swiper-wrapper');
+
+      const bullet = [
+        '슬라이드1',
+        '슬라이드2',
+        '슬라이드3',
+        '슬라이드4',
+        '슬라이드5',
+        '슬라이드6',
+        '슬라이드7',
+        '슬라이드8',
+      ];
+
+      imgNames.forEach(imgSrc => {
+        const slide = document.createElement('div');
+        slide.className = 'swiper-slide';
+        swiperWrapper.appendChild(slide);
+      });
+
+      const swiper = new Swiper('.mySwiper', {
+        loop: true,
+        effect: 'fade',
+        speed: 800,
+        spaceBetween: 0,
+        slideActiveClass: 'on',
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        autoplay: {
+          delay: 4000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+          renderBullet: function (index, className) {
+            return '<div class="' + className + '"><span>' + bullet[index] + '</span></div>';
+          },
+        },
+        mousewheel: true,
+        keyboard: true,
+        lazy: {
+          loadPrevNext: true,
+        },
+        on: {
+          slideChangeTransitionStart: function () {
+            const bullets = document.querySelectorAll('.swiper-pagination-bullet');
+            bullets.forEach(bullet => {
+              bullet.classList.remove('swiper-pagination-bullet-active');
+              void bullet.offsetWidth; // Trigger reflow to restart animation
+              if (bullet === bullets[swiper.realIndex]) {
+                bullet.classList.add('swiper-pagination-bullet-active');
+              }
+            });
+
+            // Remove background images from all slides
+            swiper.slides.forEach(slide => {
+              slide.style.backgroundImage = 'none';
+            });
+          },
+          slideChangeTransitionEnd: function () {
+            // Set background image for the current slide
+            const currentSlide = swiper.slides[swiper.realIndex];
+            const imgElement = document.createElement('img');
+            imgElement.src = imgNames[swiper.realIndex];
+            imgElement.style.display = 'none'; // Hide image element
+            imgElement.onload = function () {
+              currentSlide.style.backgroundImage = `url(${imgElement.src})`;
+              currentSlide.style.backgroundPosition = 'center';
+              currentSlide.style.backgroundSize = 'contain';
+              currentSlide.style.backgroundRepeat = 'no-repeat';
+              imgElement.remove(); // Remove image element after loading
+            };
+            currentSlide.appendChild(imgElement); // Append hidden image element
+          },
+        },
+      });
+
+      document.addEventListener('DOMContentLoaded', () => {
+        const initialActiveBullet = document.querySelector('.swiper-pagination-bullet-active');
+        if (initialActiveBullet) {
+          initialActiveBullet.classList.add('swiper-pagination-bullet-active');
+        }
+        // Initialize the background image for the first slide
+        const initialSlide = swiper.slides[swiper.realIndex];
+        const imgElement = document.createElement('img');
+        imgElement.src = imgNames[swiper.realIndex];
+        imgElement.style.display = 'none'; // Hide image element
+        imgElement.onload = function () {
+          initialSlide.style.backgroundImage = `url(${imgElement.src})`;
+          initialSlide.style.backgroundPosition = 'center';
+          initialSlide.style.backgroundSize = 'contain';
+          initialSlide.style.backgroundRepeat = 'no-repeat';
+          imgElement.remove(); // Remove image element after loading
+        };
+        initialSlide.appendChild(imgElement); // Append hidden image element
+      });
+    </script>
+  </body>
+</html>

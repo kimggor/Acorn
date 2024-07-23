@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/db3c20a06c.js" crossorigin="anonymous"></script>
+    <style>
+      .fa-xmark {
+        cursor: pointer;
+        margin-left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" id="searchBox" />
+    <button id="searchTerm">검색</button>
+    <button id="checkTerm">조회</button>
+    <ul id="list"></ul>
+    <script>
+      const searchBox = document.getElementById('searchBox');
+      const searchTermBtn = document.getElementById('searchTerm');
+      const checkTermBtn = document.getElementById('checkTerm');
+      const searchList = document.getElementById('list');
+
+      const loadTerms = () => {
+        searchList.innerHTML = ''; // 기존 리스트 초기화
+        const terms = JSON.parse(localStorage.getItem('searchTerms')) || [];
+        terms.forEach(term => {
+          addTermsList(term);
+        });
+      };
+
+      const addTermsList = term => {
+        const li = document.createElement('li');
+        li.textContent = term;
+
+        const removeBtn = document.createElement('i');
+        removeBtn.classList.add('fa-solid', 'fa-xmark');
+        removeBtn.addEventListener('click', () => {
+          removeSearchTerm(term, li);
+        });
+
+        li.appendChild(removeBtn);
+        searchList.appendChild(li);
+      };
+
+      const removeSearchTerm = (term, listItem) => {
+        let terms = JSON.parse(localStorage.getItem('searchTerms')) || [];
+        // terms = terms.filter(t => t !== term);
+        const index = terms.indexOf(term);
+        if (index > -1) {
+          terms.splice(index, 1); // 인덱스에 있는 요소를 1개 제거
+        }
+        localStorage.setItem('searchTerms', JSON.stringify(terms));
+        console.log('After Removal:', JSON.parse(localStorage.getItem('searchTerms')));
+        searchList.removeChild(listItem);
+      };
+
+      const saveTerms = term => {
+        const terms = JSON.parse(localStorage.getItem('searchTerms')) || [];
+        terms.push(term);
+        localStorage.setItem('searchTerms', JSON.stringify(terms));
+        console.log('After Addition:', JSON.parse(localStorage.getItem('searchTerms')));
+      };
+
+      const handleTerm = () => {
+        const term = searchBox.value.trim();
+        if (term) {
+          addTermsList(term);
+          saveTerms(term);
+          searchBox.value = ''; // 입력창 초기화
+        }
+      };
+
+      searchTermBtn.addEventListener('click', handleTerm);
+      searchBox.addEventListener('keydown', event => {
+        if (event.key === 'Enter') {
+          handleTerm();
+        }
+      });
+
+      checkTermBtn.addEventListener('click', () => {
+        loadTerms(); // 저장된 검색어 목록을 로드
+      });
+
+      document.addEventListener('DOMContentLoaded', loadTerms); // 페이지 로드 시 저장된 검색어 목록 로드
+    </script>
+  </body>
+</html>

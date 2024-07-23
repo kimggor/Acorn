@@ -1,0 +1,194 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+ul {
+  list-style: none;
+}
+hr {
+  border: 1px solid #c5ccd2;
+}
+button {
+  cursor: pointer;
+}
+.header-wrap {
+  display: flex;
+  flex-direction: column;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 20px 20px 20px;
+  border-bottom: 1px solid #c5ccd2;
+}
+header .logo {
+  background-image: url(/images/acorn_logo.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 350px;
+  height: 40px;
+}
+header .search-box {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+header .search-box input {
+  height: 30px;
+}
+header .search-box i {
+  position: absolute;
+  left: 146px;
+}
+.member-wrap {
+  padding: 20px;
+}
+.member-wrap span {
+  margin-right: 12px;
+}
+.main-wrap {
+  width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+}
+.main-wrap .logo {
+  width: 100%;
+  height: 50px;
+  background-image: url(https://www.navercorp.com/img/common/logo.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-bottom: 50px;
+}
+.main-wrap .login-info-box {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #c5ccd2;
+  margin-bottom: 12px;
+  border-radius: 8px;
+}
+.main-wrap .member-info-box {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #c5ccd2;
+  margin-bottom: 8px;
+  border-radius: 8px;
+}
+.main-wrap .member-info-box .telecom {
+  width: 100%;
+  position: relative;
+}
+.main-wrap .member-info-box .telecom button {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  color: #777;
+  background-color: white;
+  border: none;
+  padding: 6px;
+}
+
+.main-wrap .member-info-box .telecom ul {
+  border-radius: 8px;
+  display: none;
+  width: 200px;
+  position: absolute;
+  left: 40px;
+}
+#telecom_menu {
+  flex-wrap: wrap;
+}
+#telecom_menu li {
+  width: 100px;
+  border: 1px solid #c5ccd2;
+}
+.text {
+  color: black;
+}
+.main-wrap .radio-wrap {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  height: 50px;
+  color: #777;
+}
+.main-wrap .radio-wrap .gender {
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #c5ccd2;
+  height: 30px;
+  border-radius: 8px;
+}
+.main-wrap .radio-wrap .native {
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #c5ccd2;
+  height: 30px;
+  border-radius: 8px;
+}
+.left {
+  text-align: center;
+  border-right: 1px solid #c5ccd2;
+  width: 100px;
+}
+.right {
+  text-align: center;
+  width: 100px;
+}
+.main-wrap input[type='text'] {
+  width: 100%;
+  border: none;
+  height: 50px;
+  padding: 12px;
+}
+.main-wrap input[type='password'] {
+  width: 100%;
+  border: none;
+  height: 50px;
+  padding: 12px;
+}
+.main-wrap .post {
+  width: 100%;
+}
+.main-wrap .post button {
+  width: 100%;
+  background-color: #2db400;
+  border: none;
+  color: white;
+  height: 50px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 100px;
+}
+.input-wrap {
+  display: flex;
+  align-items: center;
+  padding-left: 12px;
+}
+p {
+  color: red;
+}
+.error-message {
+  font-size: 12px;
+  z-index: 3;
+  white-space: nowrap;
+}
